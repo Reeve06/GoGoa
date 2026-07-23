@@ -667,7 +667,7 @@ const GO_GOA_DATA = {
       name: "Coca Cola (330ml Can)",
       price: 1.80,
       description: "Chilled classic refreshing Coca-Cola red can (330ml).",
-      image: "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=600&q=80",
+      image: "images/coca_cola.png",
       spicyLevel: 0,
       isVeg: true,
       isPopular: true
@@ -678,7 +678,7 @@ const GO_GOA_DATA = {
       name: "Diet Coke (330ml Can)",
       price: 1.80,
       description: "Crisp zero-sugar Diet Coke silver can served ice cold.",
-      image: "https://images.unsplash.com/photo-1554866585-cd94860890b7?auto=format&fit=crop&w=600&q=80",
+      image: "images/diet_coke.png",
       spicyLevel: 0,
       isVeg: true,
       isPopular: false
@@ -689,7 +689,7 @@ const GO_GOA_DATA = {
       name: "Irn Bru (330ml Can)",
       price: 1.80,
       description: "Scotland's iconic orange & blue Irn-Bru carbonated drink (330ml).",
-      image: "https://images.unsplash.com/photo-1527960471264-932f39eb5846?auto=format&fit=crop&w=600&q=80",
+      image: "images/irnbru.png",
       spicyLevel: 0,
       isVeg: true,
       isPopular: true
@@ -700,7 +700,7 @@ const GO_GOA_DATA = {
       name: "Fanta Orange (330ml Can)",
       price: 1.80,
       description: "Sparkling bright orange Fanta fruit soda served ice cold.",
-      image: "https://images.unsplash.com/photo-1624517452488-04869289c4ca?auto=format&fit=crop&w=600&q=80",
+      image: "images/fanta_orange.png",
       spicyLevel: 0,
       isVeg: true,
       isPopular: false
