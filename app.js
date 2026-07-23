@@ -9,8 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dietaryFilter: 'all',
     cart: JSON.parse(localStorage.getItem('gogoa_cart')) || [],
     orderType: 'pickup', // 'pickup' or 'delivery'
-    promoCode: '',
-    discountPercent: 0,
+    isDiscountDay: false,  // Auto true on Wed & Thu
     isOpen: false,
     nextOpeningTimeStr: ''
   };
@@ -32,13 +31,34 @@ document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------------------------------------
   function updateOpeningStatus() {
     const now = new Date();
-    const day = now.getDay(); // 0 is Sun, 3 is Wed, 4 is Thu, 5 is Fri, 6 is Sat
+    const day = now.getDay(); // 0 is Sun, 3 is Wed, 4 is Thu
     const hour = now.getHours();
 
     const isOpenDay = GO_GOA_DATA.restaurant.openingHours.openDays.includes(day);
     const isOpenHour = hour >= GO_GOA_DATA.restaurant.openingHours.openHour && hour < GO_GOA_DATA.restaurant.openingHours.closeHour;
 
     state.isOpen = isOpenDay && isOpenHour;
+
+    // Auto-apply 10% discount on Wednesday (3) and Thursday (4)
+    state.isDiscountDay = (day === 3 || day === 4);
+
+    // Show a dynamic promo bar if today is a discount day
+    const existingPromoBar = document.getElementById('dynamic-promo-bar');
+    if (existingPromoBar) existingPromoBar.remove();
+
+    if (state.isDiscountDay) {
+      const promoBar = document.createElement('div');
+      promoBar.id = 'dynamic-promo-bar';
+      promoBar.className = 'dynamic-promo-bar';
+      promoBar.innerHTML = `🎉 <span>TODAY'S SPECIAL — ORDER ONLINE & GET 10% OFF! Discount applied automatically.</span>`;
+      // Insert after closed-alert-banner
+      const closedBanner = document.getElementById('closed-alert-banner');
+      if (closedBanner && closedBanner.nextSibling) {
+        closedBanner.parentNode.insertBefore(promoBar, closedBanner.nextSibling);
+      } else {
+        document.body.insertBefore(promoBar, document.body.firstChild);
+      }
+    }
 
     const badgeEl = document.getElementById('store-status-badge');
     const closedAlertBanner = document.getElementById('closed-alert-banner');
@@ -140,11 +160,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const nonSpicyCategories = ['drinks', 'desserts', 'breads', 'rice', 'accompaniments'];
     const hideVegBadgeCategories = ['drinks'];
+    // Dishes that support a spice level selector (the user can choose mild/medium/hot)
+    const spicySelectorCategories = ['street-food', 'starters', 'goan-seafood', 'goan-nonveg', 'goan-veg', 'house-specials-nonveg', 'house-specials-veg', 'tandoori', 'biryani', 'dhaba-delicacies', 'dal-tadka'];
 
     grid.innerHTML = filtered.map(dish => {
-      let spiceRatingText = '';
-      if (!nonSpicyCategories.includes(dish.categoryId)) {
-        spiceRatingText = dish.spicyLevel > 0 ? 'Spiciness: ' + '🌶️'.repeat(dish.spicyLevel) : 'Mild';
+      let spiceFooterHtml = '';
+      const showSpiceSelector = !nonSpicyCategories.includes(dish.categoryId) && spicySelectorCategories.includes(dish.categoryId) && dish.spicyLevel > 0;
+
+      if (showSpiceSelector) {
+        spiceFooterHtml = `
+          <div class="spice-selector">
+            <label for="spice-${dish.id}">🌶️</label>
+            <select id="spice-${dish.id}" data-dish-id="${dish.id}" class="spice-level-select">
+              <option value="mild">Mild</option>
+              <option value="medium"${dish.spicyLevel >= 2 ? ' selected' : ''}>Medium</option>
+              <option value="hot"${dish.spicyLevel >= 3 ? ' selected' : ''}>Hot</option>
+            </select>
+          </div>
+        `;
+      } else if (!nonSpicyCategories.includes(dish.categoryId)) {
+        spiceFooterHtml = `<span class="spice-rating">Mild</span>`;
+      } else {
+        spiceFooterHtml = `<span></span>`;
       }
 
       let badgesHtml = '';
@@ -168,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <p class="dish-desc">${dish.description}</p>
             <div class="dish-footer">
-              ${spiceRatingText ? `<span class="spice-rating">${spiceRatingText}</span>` : '<span></span>'}
+              ${spiceFooterHtml}
               <button class="btn-add-cart" data-id="${dish.id}">
                 <span>+ Add</span>
               </button>
@@ -265,11 +302,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Cart Management Logic
   // -------------------------------------------------------------
   function addToCart(dishId) {
+    // Get the selected spice level if applicable
+    const spiceSelect = document.getElementById(`spice-${dishId}`);
+    const spiceLevel = spiceSelect ? spiceSelect.value : null;
+
     const existing = state.cart.find(item => item.id === dishId);
     if (existing) {
       existing.quantity += 1;
+      if (spiceLevel) existing.spiceLevel = spiceLevel;
     } else {
-      state.cart.push({ id: dishId, quantity: 1 });
+      state.cart.push({ id: dishId, quantity: 1, spiceLevel });
     }
     saveCart();
     updateCartUI();
@@ -320,11 +362,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const dish = GO_GOA_DATA.dishes.find(d => d.id === cartItem.id);
         if (!dish) return '';
         const itemTotal = dish.price * cartItem.quantity;
+        const spiceNote = cartItem.spiceLevel ? ` <span style="font-size:0.78rem; color: var(--accent-saffron); font-weight:600;">(${cartItem.spiceLevel})</span>` : '';
         return `
           <div class="cart-item">
             <img src="${dish.image}" alt="${dish.name}" class="cart-item-img" onError="this.onerror=null;this.src='https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=600&q=80';" />
             <div class="cart-item-details">
-              <div class="cart-item-name">${dish.name}</div>
+              <div class="cart-item-name">${dish.name}${spiceNote}</div>
               <div class="cart-item-price">£${itemTotal.toFixed(2)}</div>
             </div>
             <div class="cart-item-qty">
@@ -337,22 +380,34 @@ document.addEventListener('DOMContentLoaded', () => {
       }).join('');
     }
 
-    // Totals calculation
+    // Totals calculation - auto-apply Wed/Thu discount
     let subtotal = state.cart.reduce((sum, item) => {
       const dish = GO_GOA_DATA.dishes.find(d => d.id === item.id);
       return sum + (dish ? dish.price * item.quantity : 0);
     }, 0);
 
     let discount = 0;
-    if (state.promoCode.toUpperCase() === 'DISCOUNT') {
+    const discountLineEl = document.getElementById('discount-line');
+    const discountNoticeEl = document.getElementById('discount-notice');
+
+    if (state.isDiscountDay && subtotal > 0) {
       discount = subtotal * 0.10;
+      if (discountLineEl) discountLineEl.style.display = 'flex';
+      if (discountNoticeEl) {
+        discountNoticeEl.style.display = 'block';
+        discountNoticeEl.innerHTML = `🎉 <strong>10% Wed/Thu discount applied automatically!</strong>`;
+      }
+    } else {
+      if (discountLineEl) discountLineEl.style.display = 'none';
+      if (discountNoticeEl) discountNoticeEl.style.display = 'none';
     }
 
     let deliveryFee = (state.orderType === 'delivery' && subtotal > 0) ? 2.50 : 0;
     let grandTotal = Math.max(0, subtotal - discount + deliveryFee);
 
     document.getElementById('cart-subtotal').textContent = `£${subtotal.toFixed(2)}`;
-    document.getElementById('cart-discount').textContent = `-£${discount.toFixed(2)}`;
+    const discountEl = document.getElementById('cart-discount');
+    if (discountEl) discountEl.textContent = `-£${discount.toFixed(2)}`;
     document.getElementById('cart-delivery').textContent = state.orderType === 'delivery' ? `£${deliveryFee.toFixed(2)}` : 'FREE (Pickup)';
     document.getElementById('cart-grand-total').textContent = `£${grandTotal.toFixed(2)}`;
 
@@ -361,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (checkoutBtn) {
       if (!state.isOpen) {
         checkoutBtn.innerHTML = `<span>🕒 Schedule Pre-Order (${state.nextOpeningTimeStr}) →</span>`;
-        checkoutBtn.style.background = 'linear-gradient(135deg, #D96B27 0%, #C84B31 100%)';
+        checkoutBtn.style.background = 'linear-gradient(135deg, var(--accent-saffron) 0%, var(--primary-navy) 100%)';
         checkoutBtn.style.color = '#FFFFFF';
       } else {
         checkoutBtn.innerHTML = `<span>Proceed to Checkout →</span>`;
@@ -510,19 +565,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Promo Code Application
-    document.getElementById('apply-promo-btn').addEventListener('click', () => {
-      const code = document.getElementById('promo-input').value.trim();
-      if (code.toUpperCase() === 'DISCOUNT') {
-        state.promoCode = code;
-        showToast('🎉 10% Discount Applied!');
-        updateCartUI();
-      } else {
-        showToast('❌ Invalid code. Use code DISCOUNT for 10% off');
-      }
-    });
-
-    // Checkout Modal Simulation
+    // Promo code section removed - discount is automatic on Wed/Thu
+    // Cart Quantity Buttons
     document.getElementById('checkout-btn').addEventListener('click', () => {
       if (state.cart.length === 0) {
         showToast('Your cart is empty!');

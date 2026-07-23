@@ -5,44 +5,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-  /* Color Palette */
-  --bg-main: #FAF8F5;
+  /* =====================================================
+   * OFFICIAL GoGoa Takeaway Brand Colours
+   * Source: gogoaedinburgh.co.uk/wp-content/themes/gogoa/style.css
+   * ===================================================== */
+
+  /* Backgrounds */
+  --bg-main: #EEEEEE;           /* Official body background */
   --bg-card: #FFFFFF;
-  --bg-dark: #051C26;
-  --bg-dark-surface: #092634;
-  --bg-dark-card: #0D3142;
-  
-  --primary-navy: #032E3F;
-  --primary-teal: #084B64;
-  
-  --accent-gold: #E69F1D;
-  --accent-gold-hover: #D18D10;
-  --accent-gold-light: #FDF3E3;
-  
-  --accent-saffron: #D96B27;
-  --accent-spice: #C84B31;
-  --accent-spice-light: #FDF0ED;
-  
-  --text-dark: #121A1E;
-  --text-muted: #5C6B73;
-  --text-light: #F2F5F7;
+  --bg-dark: #032E3F;           /* Official primary brand dark teal */
+  --bg-dark-surface: #021E2B;
+  --bg-dark-card: #042D3E;
+
+  /* Brand Colours */
+  --primary-navy: #032E3F;      /* Official primary — dark teal */
+  --primary-teal: #04628A;
+
+  /* Primary CTA colour — official GoGoa button: #032e3f teal */
+  --accent-gold: #032E3F;           /* Replaces yellow — official brand teal for buttons */
+  --accent-gold-hover: #054B64;     /* Hover state: slightly lighter teal */
+  --accent-gold-light: #E8F0F3;     /* Light teal background tint */
+
+  /* Coral/red accent — official section headings & accents */
+  --accent-saffron: #ED5F5E;    /* Official .menu-set-3 h2, testimonials */
+  --accent-spice: #A41916;      /* Official .menu-set-3 h3 deep red */
+  --accent-spice-light: #FDEAEA;
+
+  /* Bright red — official nav hover & gallery */
+  --accent-red: #E40613;        /* Official nav hover colour */
+  --accent-red-alt: #E93D3D;    /* Official slider button & footer link */
+
+  /* Text */
+  --text-dark: #000000;         /* Official body text */
+  --text-muted: #444444;        /* Official link colour */
+  --text-light: #F0F0F0;
   --text-white: #FFFFFF;
-  
-  --border-light: #E8E4DD;
-  --border-dark: #1A4456;
-  
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 8px 24px rgba(3, 46, 63, 0.08);
-  --shadow-lg: 0 16px 40px rgba(3, 46, 63, 0.14);
-  --shadow-gold: 0 8px 25px rgba(230, 159, 29, 0.25);
-  
+
+  /* Borders */
+  --border-light: #DDDDDD;
+  --border-dark: #0A3A4E;
+
+  /* Focus / highlight */
+  --accent-cyan: #04A4CC;       /* Official input:focus border colour */
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(3, 46, 63, 0.07);
+  --shadow-md: 0 8px 24px rgba(3, 46, 63, 0.12);
+  --shadow-lg: 0 16px 40px rgba(3, 46, 63, 0.20);
+  --shadow-gold: 0 6px 18px rgba(200, 170, 100, 0.32);
+
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 24px;
   --radius-full: 9999px;
-  
+
   --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 
 /* Reset & Global Base Styles */
 *, *::before, *::after {
@@ -114,11 +133,26 @@ img {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Announcement bar removed — dynamic discount notice handled in cart */
+
 /* -------------------------------------------------------------
- * Top Announcement Bar
+ * Discount Notice in Cart
  * ------------------------------------------------------------- */
-.announcement-bar {
-  background: linear-gradient(90deg, #9C3418 0%, #C84B31 50%, #D96B27 100%);
+.discount-notice {
+  background: linear-gradient(135deg, rgba(212, 150, 14, 0.1) 0%, rgba(200, 94, 26, 0.08) 100%);
+  border: 1px solid rgba(212, 150, 14, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--primary-navy);
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/* Dynamic discount announcement bar (shown by JS on Wed/Thu) */
+.dynamic-promo-bar {
+  background: linear-gradient(90deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
   color: var(--text-white);
   padding: 10px 16px;
   font-size: 0.9rem;
@@ -126,18 +160,20 @@ img {
   text-align: center;
   position: relative;
   z-index: 1001;
+  border-bottom: 2px solid var(--accent-gold);
 }
 
-.announcement-bar .promo-code-badge {
+.dynamic-promo-bar .promo-code-badge {
   background: var(--accent-gold);
   color: var(--primary-navy);
-  padding: 3px 10px;
+  padding: 2px 10px;
   border-radius: var(--radius-full);
   font-weight: 800;
   letter-spacing: 0.5px;
   margin-left: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-size: 0.85rem;
 }
+
 
 /* -------------------------------------------------------------
  * Main Header & Navigation
@@ -163,13 +199,22 @@ img {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
-.brand-logo img {
-  height: 52px;
+/* Logo displayed directly on dark header — brightness filter makes it fully visible */
+.header-logo-img {
+  height: 54px;
   width: auto;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+  display: block;
+  /* Makes the logo render bright/white on the dark navy header */
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+  transition: var(--transition);
+}
+
+.brand-logo:hover .header-logo-img {
+  opacity: 1;
+  filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(200, 146, 10, 0.6));
 }
 
 .nav-links {
@@ -203,12 +248,13 @@ img {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--accent-gold);
+  color: var(--accent-saffron);  /* Official: #ED5F5E coral red */
 }
 
 .nav-link:hover::after,
 .nav-link.active::after {
   width: 100%;
+  background: var(--accent-saffron);  /* Official coral underline */
 }
 
 .header-actions {
@@ -302,8 +348,8 @@ img {
 
 .cart-btn {
   position: relative;
-  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-hover) 100%);
-  color: var(--primary-navy);
+  background: #032E3F;            /* Official GoGoa button colour */
+  color: #FFFFFF;
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   padding: 10px 20px;
@@ -311,18 +357,18 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: var(--shadow-gold);
+  border: 2px solid rgba(255,255,255,0.2);
   transition: var(--transition);
 }
 
 .cart-btn:hover {
+  background: #054B64;
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(230, 159, 29, 0.35);
 }
 
 .cart-count {
-  background: var(--primary-navy);
-  color: var(--text-white);
+  background: #C8AA64;         /* Official GoGoa champagne gold */
+  color: #032E3F;
   font-size: 0.8rem;
   font-weight: 800;
   width: 22px;
@@ -347,7 +393,7 @@ img {
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  background-image: url('https://gogoaedinburgh.co.uk/wp-content/uploads/2022/07/go-goa-indian-food-edinburgh-takeaway-delivery-edinburgh.jpg');
+  background-image: url('images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   opacity: 0.18;
@@ -389,7 +435,7 @@ img {
 
 .hero-title span {
   color: var(--accent-gold);
-  background: linear-gradient(135deg, #FDF3E3 0%, var(--accent-gold) 100%);
+  background: linear-gradient(135deg, #F5EDD0 0%, #C8AA64 100%);  /* Official gold #c8aa64 */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -409,8 +455,8 @@ img {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-saffron) 100%);
-  color: var(--primary-navy);
+  background: #032E3F;         /* Official GoGoa button colour */
+  color: #FFFFFF;
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 1.05rem;
@@ -419,13 +465,15 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  box-shadow: var(--shadow-gold);
+  border: 2px solid #032E3F;
   transition: var(--transition);
 }
 
 .btn-primary:hover {
+  background: #054B64;
+  border-color: #054B64;
   transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(217, 107, 39, 0.4);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-secondary {
@@ -472,30 +520,35 @@ img {
   position: absolute;
   bottom: -20px;
   right: 20px;
-  background: rgba(9, 38, 52, 0.95);
+  background: rgba(3, 46, 63, 0.95);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(230, 159, 29, 0.3);
-  padding: 14px 20px;
+  border: 1px solid rgba(200, 170, 100, 0.3);
+  padding: 16px 22px;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
+  min-width: 220px;
 }
 
 .hero-badge-floating img {
-  width: 45px;
-  height: 45px;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .hero-badge-text h5 {
-  color: var(--text-white);
+  color: #FFFFFF;
   font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
 }
 
 .hero-badge-text p {
-  color: var(--accent-gold);
-  font-size: 0.8rem;
+  color: #C8AA64;              /* Official GoGoa champagne gold */
+  font-size: 0.82rem;
 }
 
 /* -------------------------------------------------------------
@@ -516,13 +569,13 @@ img {
 
 .highlight-card {
   background: var(--bg-card);
-  padding: 28px;
+  padding: 24px 28px;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-light);
   display: flex;
-  gap: 20px;
-  align-items: flex-start;
+  gap: 18px;
+  align-items: center;         /* centres icon with text block */
   transition: var(--transition);
 }
 
@@ -533,15 +586,17 @@ img {
 }
 
 .highlight-icon {
-  font-size: 2.2rem;
-  background: var(--accent-gold-light);
-  width: 56px;
-  height: 56px;
+  font-size: 2rem;
+  background: #E8F5FA;          /* Official light teal tint */
+  border: 2px solid rgba(3,46,63,0.10);
+  width: 58px;
+  height: 58px;
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  line-height: 1;
 }
 
 .highlight-info h4 {
@@ -565,7 +620,7 @@ img {
 }
 
 .section-subtitle {
-  color: var(--accent-saffron);
+  color: var(--accent-saffron);      /* Official GoGoa coral: #ED5F5E */
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -617,8 +672,8 @@ img {
 }
 
 .menu-search-input:focus {
-  border-color: var(--accent-gold);
-  box-shadow: 0 0 0 4px rgba(230, 159, 29, 0.15);
+  border-color: var(--accent-cyan);   /* Official input focus: #04A4CC */
+  box-shadow: 0 0 0 4px rgba(4, 164, 204, 0.15);
 }
 
 .search-icon {
@@ -654,9 +709,9 @@ img {
 
 .chip-btn:hover,
 .chip-btn.active {
-  background: var(--primary-navy);
-  color: var(--text-white);
-  border-color: var(--primary-navy);
+  background: #ED5F5E;
+  color: #FFFFFF;
+  border-color: #ED5F5E;
 }
 
 .category-scroll-container {
@@ -696,10 +751,10 @@ img {
 
 .cat-tab-btn:hover,
 .cat-tab-btn.active {
-  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
-  color: var(--text-white);
-  border-color: var(--primary-navy);
-  box-shadow: var(--shadow-md);
+  background: #ED5F5E;
+  color: #FFFFFF;
+  border-color: #ED5F5E;
+  box-shadow: 0 4px 14px rgba(237, 95, 94, 0.35);
   transform: translateY(-2px);
 }
 
@@ -759,11 +814,11 @@ img {
 }
 
 .badge-veg {
-  background: #10B981;
+  background: var(--primary-teal);
   color: white;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
@@ -771,20 +826,20 @@ img {
 }
 
 .badge-nonveg {
-  background: #EF4444;
+  background: var(--accent-spice);
   color: white;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
 }
 
 .badge-popular {
-  background: var(--accent-gold);
-  color: var(--primary-navy);
-  font-size: 0.75rem;
+  background: var(--accent-saffron);  /* Official GoGoa coral #ED5F5E */
+  color: white;
+  font-size: 0.72rem;
   font-weight: 800;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
 }
 
@@ -842,18 +897,51 @@ img {
   background: var(--primary-navy);
   color: var(--text-white);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   padding: 8px 18px;
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   gap: 6px;
   transition: var(--transition);
+  white-space: nowrap;
 }
 
 .btn-add-cart:hover {
   background: var(--accent-gold);
   color: var(--primary-navy);
+}
+
+/* Spice level selector on dish cards */
+.spice-selector {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.spice-selector label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+
+.spice-selector select {
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background: var(--bg-main);
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.spice-selector select:focus {
+  border-color: var(--accent-gold);
+  outline: none;
 }
 
 /* -------------------------------------------------------------
@@ -1190,15 +1278,20 @@ img {
 
 .close-cart-btn {
   color: var(--text-white);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1;
   width: 36px;
   height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   transition: var(--transition);
+  /* Fix × character vertical centering */
+  padding-top: 1px;
+  flex-shrink: 0;
 }
 
 .close-cart-btn:hover {
@@ -1215,12 +1308,16 @@ img {
 
 .type-btn {
   flex: 1;
-  padding: 10px;
+  padding: 10px 12px;
   border-radius: var(--radius-full);
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 0.88rem;
   color: var(--text-muted);
   transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
 .type-btn.active {
@@ -1342,16 +1439,29 @@ img {
 
 .btn-checkout {
   width: 100%;
-  margin-top: 16px;
-  padding: 14px;
+  margin-top: 20px;
+  padding: 16px;
   border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-saffron) 100%);
-  color: var(--primary-navy);
+  background: #032E3F;           /* Official GoGoa button colour */
+  color: #FFFFFF;
   font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 1.05rem;
-  box-shadow: var(--shadow-gold);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 2px solid #032E3F;
   transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-checkout:hover {
+  background: #054B64;
+  border-color: #054B64;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-checkout:hover {
@@ -1395,19 +1505,21 @@ img {
 
 .modal-close-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 16px;
+  right: 16px;
   z-index: 10;
-  background: rgba(0,0,0,0.5);
+  background: rgba(3, 46, 63, 0.75);
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  line-height: 1;
   transition: var(--transition);
+  flex-shrink: 0;
 }
 
 .modal-close-btn:hover {
