@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Goa Takeaway | Edinburgh's Best Authentic Goan & Indian Food</title>
+  <meta name="description" content="Order authentic Goan and Indian home style cooking freshly prepared for pickup and delivery in Edinburgh. Enjoy 10% OFF online orders with code DISCOUNT.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpg" href="https://gogoaedinburgh.co.uk/wp-content/uploads/2022/07/cropped-go-goa-indian-food-delivery-in-edinburgh-favicon--270x270.jpg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css?v=104">
+</head>
+<body>
+
+  <!-- Closed Restaurant Top Warning Banner (Dynamically Shown when Closed) -->
+  <div id="closed-alert-banner" class="closed-alert-banner"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    🔥 <span>ORDER ONLINE NOW FOR 10% OFF ON WED & THU! USE PROMO CODE:</span>
+    <span class="promo-code-badge">DISCOUNT</span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="#home" class="brand-logo">
+        <img src="https://gogoaedinburgh.co.uk/wp-content/uploads/2022/07/go-goa-indian-takeaway-edinburgh-logo-top-8.png" alt="Go Goa Takeaway Edinburgh" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active" data-tab="home">Home</a></li>
+        <li><a href="#menu" class="nav-link" data-tab="menu">Menu & Order</a></li>
+        <li><a href="#recipes" class="nav-link" data-tab="recipes">Chef's Recipes</a></li>
+        <li><a href="#story" class="nav-link" data-tab="story">Our Story</a></li>
+        <li><a href="#contact" class="nav-link" data-tab="contact">Contact & Map</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <!-- Social Icons in Header -->
+        <div class="header-socials">
+          <a href="https://www.facebook.com/Go-Goa-Edinburgh-103436119164062" target="_blank" rel="noopener" class="social-icon-btn facebook" title="Facebook Page">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/gogoaedinburgh/" target="_blank" rel="noopener" class="social-icon-btn instagram" title="Instagram Page">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+
+        <div id="store-status-badge" class="status-badge open">
+          <span class="status-dot"></span> OPEN NOW
+        </div>
+        <button class="cart-btn" id="open-cart-btn">
+          <span>🛒 Cart</span>
+          <span class="cart-count cart-count-val">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-bg-overlay"></div>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="hero-tag">
+          <span>🌶️ Edinburgh's Premier Goan Kitchen</span>
+        </div>
+        <h1 class="hero-title">
+          Authentic Goan & Indian <span>Home Style Cooking</span>
+        </h1>
+        <p class="hero-subtitle">
+          Experience 450 years of Portuguese-influenced Goan culinary heritage. Crafted with fresh coastal spices, coconut, and love by Chef Roy & Valentina.
+        </p>
+        <div class="hero-ctas">
+          <a href="#menu" class="btn-primary" data-tab="menu">
+            <span>📖 Order Takeaway Online</span>
+            <span>→</span>
+          </a>
+          <a href="#recipes" class="btn-secondary" data-tab="recipes">
+            <span>👨‍🍳 Explore Chef Recipes</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img src="https://gogoaedinburgh.co.uk/wp-content/uploads/2024/07/go-goa-indian-food-edinburgh-takeaway.png" alt="Go Goa Signature Dish" class="hero-main-img" />
+        <div class="hero-badge-floating">
+          <img src="https://gogoaedinburgh.co.uk/wp-content/uploads/2022/07/go-goa-indian-takeaway-edinburgh-5-star-indian-food-8.png" alt="5 Star Rated" />
+          <div class="hero-badge-text">
+            <h5>5-Star Food Hygiene</h5>
+            <p>Edinburgh Council Approved</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights Grid -->
+  <section class="highlights-section">
+    <div class="container highlights-grid">
+      <div class="highlight-card">
+        <div class="highlight-icon">🥥</div>
+        <div class="highlight-info">
+          <h4>Fresh Ground Spices</h4>
+          <p>Hand-ground coconut, star anise, and Kashmiri red chilies every morning.</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🇵🇹</div>
+        <div class="highlight-info">
+          <h4>Portuguese Fusion</h4>
+          <p>450 years of unique Catholic & Hindu Goan culinary traditions.</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🛵</div>
+        <div class="highlight-info">
+          <h4>Hot & Fast Delivery</h4>
+          <p>Delivered steaming hot directly to your door across Edinburgh.</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🎁</div>
+        <div class="highlight-info">
+          <h4>10% Online Savings</h4>
+          <p>Use code <strong>DISCOUNT</strong> for 10% off on Wed & Thu orders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu & Takeaway Section -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Freshly Prepared Takeaway</span>
+        <h2 class="section-title">Explore Our Full Menu</h2>
+        <p class="section-desc">Select from 16 categories of authentic Goan seafood, fiery vindaloos, biryanis, and street eats.</p>
+      </div>
+
+      <div class="menu-controls">
+        <div class="menu-search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="menu-search" class="menu-search-input" placeholder="Search dishes (e.g., Xacuti, Manchurian, Biryani, Naan)..." />
+        </div>
+
+        <div class="filter-chips" id="dietary-chips">
+          <button class="chip-btn active" data-filter="all">All Items</button>
+          <button class="chip-btn" data-filter="veg">🌿 Vegetarian</button>
+          <button class="chip-btn" data-filter="nonveg">🍖 Non-Vegetarian</button>
+          <button class="chip-btn" data-filter="spicy">🌶️ Spicy Specials</button>
+          <button class="chip-btn" data-filter="popular">⭐ Customer Favorites</button>
+        </div>
+      </div>
+
+      <!-- Horizontal Scrollable Category Bar -->
+      <div class="category-scroll-container" id="category-scroll">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Dishes Grid -->
+      <div class="menu-dishes-grid" id="dishes-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Chef's Recipes Section -->
+  <section id="recipes" class="recipes-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle" style="color: var(--accent-gold);">Secrets of Goan Home Cooking</span>
+        <h2 class="section-title">Chef Roy's Authentic Recipes</h2>
+        <p class="section-desc" style="color: #B2C4CE;">"Real cooking is more about following your heart than following recipes." — Chef Roy</p>
+      </div>
+
+      <div class="recipes-grid" id="recipes-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section id="story" class="story-section">
+    <div class="container story-grid">
+      <div class="story-content">
+        <span class="section-subtitle">Our Heritage & Passion</span>
+        <h2>Meet Head Chef Roy & Valentina</h2>
+        <p>
+          Founded by Head Chef Roy and Valentina, <strong>Go Goa Takeaway</strong> brings the vibrant coastal flavors of India's sunshine state directly to Scotland. Both raised in Vasco Da Gama, Goa, Roy spent over 20 years perfecting his craft across top establishments in Dubai, international cruise liners, the USA, and Scotland.
+        </p>
+        <p>
+          Goan cuisine is world-renowned for its 450-year Portuguese influence, creating a unique harmony between Catholic and Hindu cooking styles. Signature dishes rely on fresh coconut, toddy vinegar, dried Kokum fruit, and fragrant roasted spices.
+        </p>
+        <div class="story-founders-box">
+          <h4>Inspired by Mom's Kitchen</h4>
+          <p style="font-size: 0.95rem; color: var(--text-muted); font-style: italic;">
+            "Every curry we serve in Duddingston is cooked using the exact spice blends taught to me by my mother in Goa." — Chef Roy
+          </p>
+        </div>
+      </div>
+
+      <div class="story-chef-container" style="text-align: center;">
+        <div style="position: relative; display: inline-block;">
+          <img src="https://gogoaedinburgh.co.uk/wp-content/uploads/2022/08/go-goa-indian-takeaway-edinburgh-roy-cliff-chef1-scaled.jpg" alt="Head Chef Roy" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); border: 4px solid var(--accent-gold); max-width: 420px; width: 100%; height: auto;" />
+          <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(3, 46, 63, 0.9); backdrop-filter: blur(10px); padding: 14px 20px; border-radius: var(--radius-md); color: white; border: 1px solid rgba(230, 159, 29, 0.4);">
+            <h4 style="color: var(--accent-gold); margin: 0;">Chef Roy</h4>
+            <p style="margin: 2px 0 0 0; font-size: 0.85rem; color: #B2C4CE;">Master Goan Culinary Director • 20+ Years Global Experience</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <span class="section-subtitle" style="color: var(--accent-gold);">5-Star Reviews</span>
+      <h2 class="section-title">What Edinburgh Is Saying</h2>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars-rating">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-quote">"Mom's Goan Fish Curry transported me straight back to Palolem beach. Fresh ingredients, balanced spices, and top-tier service!"</p>
+          <div class="testimonial-author">
+            <h5>David M.</h5>
+            <p>Portobello, Edinburgh</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars-rating">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-quote">"Hands down the best Goan food in Scotland! The Pork Vindaloo had authentic toddy vinegar tang and the Sev Papdi Chaat was addictively fresh."</p>
+          <div class="testimonial-author">
+            <h5>Sarah L.</h5>
+            <p>Leith, Edinburgh</p>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars-rating">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-quote">"Order arrived hot and fresh in under 35 mins. The 10% online discount code DISCOUNT worked instantly. Chicken Xacuti was phenomenal!"</p>
+          <div class="testimonial-author">
+            <h5>James K.</h5>
+            <p>Duddingston, Edinburgh</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Location Map Section -->
+  <section id="contact" class="contact-section">
+    <div class="container contact-grid">
+      <div class="contact-card">
+        <span class="section-subtitle">Get In Touch</span>
+        <h3 style="font-size: 1.8rem; margin-top: 4px;">Visit Or Call Us</h3>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-details">
+              <h5>Address</h5>
+              <p>94 Duddingston Park, Edinburgh, EH15 1JZ</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-details">
+              <h5>Phone Numbers</h5>
+              <p>
+                <a href="tel:01316694048" class="phone-link">0131 669 4048</a> (Landline)<br>
+                <a href="tel:07438872241" class="phone-link">07438 872241</a> (Mobile)
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">🕒</div>
+            <div class="contact-details">
+              <h5>Opening Hours</h5>
+              <p><strong>Wednesday - Sunday:</strong> 5:00 PM – 10:00 PM<br><span style="color: #EF4444;">Closed Monday & Tuesday</span></p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-details">
+              <h5>Follow Us On Social Media</h5>
+              <div class="contact-social-btns" style="display: flex; gap: 12px; margin-top: 8px;">
+                <a href="https://www.facebook.com/Go-Goa-Edinburgh-103436119164062" target="_blank" rel="noopener" class="btn-social-chip facebook">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/gogoaedinburgh/" target="_blank" rel="noopener" class="btn-social-chip instagram">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  <span>Instagram</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Google Map Embed Card -->
+      <div class="contact-card" style="padding: 0; overflow: hidden; border-radius: var(--radius-lg); position: relative; min-height: 420px;">
+        <div style="padding: 20px 24px; background: var(--primary-navy); color: white;">
+          <h4 style="color: white; margin: 0; font-size: 1.2rem;">📍 Find Us in Duddingston, Edinburgh</h4>
+          <p style="color: #B2C4CE; font-size: 0.85rem; margin: 2px 0 0 0;">94 Duddingston Park, Edinburgh, EH15 1JZ</p>
+        </div>
+        <iframe 
+          src="https://maps.google.com/maps?q=94%20Duddingston%20Park,%20Edinburgh,%20EH15%201JZ&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+          width="100%" 
+          height="360" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-over Shopping Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3>Your Order</h3>
+        <button class="close-cart-btn" id="close-cart-btn">&times;</button>
+      </div>
+
+      <div class="cart-type-toggle">
+        <button class="type-btn active" id="type-pickup">🛍️ Pick Up (Collection)</button>
+        <button class="type-btn" id="type-delivery">🛵 Delivery (£2.50)</button>
+      </div>
+
+      <div class="cart-items-body" id="cart-items-container">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="promo-input-box">
+          <input type="text" id="promo-input" placeholder="Promo Code (e.g. DISCOUNT)" />
+          <button class="btn-apply-promo" id="apply-promo-btn">Apply</button>
+        </div>
+
+        <div class="cart-summary-line">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">£0.00</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>Online Discount (10%)</span>
+          <span id="cart-discount" style="color: #10B981;">-£0.00</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>Delivery Fee</span>
+          <span id="cart-delivery">FREE</span>
+        </div>
+        <div class="cart-summary-line total">
+          <span>Total Payable</span>
+          <span id="cart-grand-total">£0.00</span>
+        </div>
+
+        <button class="btn-checkout" id="checkout-btn">
+          <span>Proceed to Checkout →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Recipe Modal -->
+  <div class="modal-overlay" id="recipe-modal">
+    <div class="modal-card" id="recipe-modal-content">
+      <!-- Rendered dynamically -->
+    </div>
+  </div>
+
+  <!-- Restaurant Closed Pre-Order Notification Modal -->
+  <div class="modal-overlay" id="closed-modal">
+    <div class="modal-card" style="max-width: 500px; padding: 32px; text-align: center;">
+      <button class="modal-close-btn" id="close-closed-modal">&times;</button>
+      <div style="font-size: 3.5rem; margin-bottom: 12px;">🕒</div>
+      <h3 style="color: var(--primary-navy); font-size: 1.8rem; margin-bottom: 8px;">We Are Currently Closed</h3>
+      <p style="color: var(--accent-saffron); font-weight: 700; font-size: 1.1rem; margin-bottom: 16px;" id="closed-modal-opening-text">Opening Today at 5:00 PM (17:00)</p>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+        Our kitchen opens Wednesday to Sunday, 5:00 PM to 10:00 PM. You can pre-select your items now, and your order will be scheduled for fulfillment when we open at 5:00 PM!
+      </p>
+      <button class="btn-primary" id="understand-preorder-btn" style="width: 100%; justify-content: center;">
+        <span>Got It • Continue Pre-Ordering</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="https://gogoaedinburgh.co.uk/wp-content/uploads/2022/07/go-goa-indian-takeaway-edinburgh-logo-top-8.png" alt="Go Goa" style="height: 48px;" />
+        <p>Bringing authentic coastal Goan and regional Indian home style cooking to Edinburgh with passion and fresh ingredients.</p>
+        <div style="display: flex; gap: 12px; margin-top: 16px;">
+          <a href="https://www.facebook.com/Go-Goa-Edinburgh-103436119164062" target="_blank" rel="noopener" class="social-icon-btn facebook">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/gogoaedinburgh/" target="_blank" rel="noopener" class="social-icon-btn instagram">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Online Menu</a></li>
+          <li><a href="#recipes">Chef Recipes</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#contact">Contact & Map</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Popular Dishes</h4>
+        <ul class="footer-links">
+          <li><a href="#menu">Mom's Goan Fish Curry</a></li>
+          <li><a href="#menu">Chicken Xacuti</a></li>
+          <li><a href="#menu">Pork Vindaloo</a></li>
+          <li><a href="#menu">Goan Biryani</a></li>
+          <li><a href="#menu">Miramar Sev Papdi Chaat</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect & Location</h4>
+        <p style="color: #B2C4CE; font-size: 0.95rem; margin-bottom: 12px;">94 Duddingston Park, Edinburgh, EH15 1JZ</p>
+        <p style="color: var(--accent-gold); font-weight: 700; margin-bottom: 12px;">📞 0131 669 4048</p>
+        <a href="https://maps.google.com/maps?q=94%20Duddingston%20Park,%20Edinburgh,%20EH15%201JZ" target="_blank" rel="noopener" style="color: var(--accent-gold); text-decoration: underline; font-weight: 600; font-size: 0.9rem;">📍 Open in Google Maps →</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        &copy; 2026 Go Goa Takeaway Edinburgh. All rights reserved. Built for exceptional dining user experience.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav">
+    <a href="#home" class="mobile-nav-btn active" data-tab="home">
+      <span class="mobile-nav-icon">🏠</span>
+      <span>Home</span>
+    </a>
+    <a href="#menu" class="mobile-nav-btn" data-tab="menu">
+      <span class="mobile-nav-icon">📖</span>
+      <span>Menu</span>
+    </a>
+    <a href="#recipes" class="mobile-nav-btn" data-tab="recipes">
+      <span class="mobile-nav-icon">👨‍🍳</span>
+      <span>Recipes</span>
+    </a>
+    <a href="#contact" class="mobile-nav-btn" data-tab="contact">
+      <span class="mobile-nav-icon">📍</span>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- JavaScript Files -->
+  <script src="data.js?v=104"></script>
+  <script src="app.js?v=104"></script>
+</body>
+</html>
