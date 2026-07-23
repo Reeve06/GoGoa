@@ -439,6 +439,7 @@ img {
   color: var(--accent-gold);
   background: linear-gradient(135deg, #F5EDD0 0%, #C8AA64 100%);  /* Official gold #c8aa64 */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
