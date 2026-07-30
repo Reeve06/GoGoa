@@ -61,19 +61,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const badgeEl = document.getElementById('store-status-badge');
+    const drawerBadgeEl = document.getElementById('drawer-store-status');
     const closedAlertBanner = document.getElementById('closed-alert-banner');
     
     if (state.isOpen) {
       state.nextOpeningTimeStr = "Open Now until 10:00 PM";
       if (badgeEl) {
         badgeEl.className = 'status-badge open';
-        badgeEl.innerHTML = `<span class="status-dot"></span> OPEN NOW (Till 10 PM)`;
+        badgeEl.innerHTML = `<span class="status-dot"></span> <span class="status-text">OPEN NOW</span>`;
+      }
+      if (drawerBadgeEl) {
+        drawerBadgeEl.className = 'status-badge open';
+        drawerBadgeEl.innerHTML = `<span class="status-dot"></span> OPEN NOW (Till 10 PM)`;
       }
       if (closedAlertBanner) closedAlertBanner.style.display = 'none';
     } else {
       let timeNotice = "";
       if (isOpenDay && hour < GO_GOA_DATA.restaurant.openingHours.openHour) {
-        timeNotice = "Opening Today at 5:00 PM (17:00)";
+        timeNotice = "Opening Today at 5:00 PM";
       } else {
         timeNotice = "Opening Wednesday at 5:00 PM";
       }
@@ -81,7 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (badgeEl) {
         badgeEl.className = 'status-badge closed';
-        badgeEl.innerHTML = `<span class="status-dot"></span> CLOSED • ${timeNotice}`;
+        badgeEl.innerHTML = `<span class="status-dot"></span> <span class="status-text">CLOSED</span>`;
+      }
+      if (drawerBadgeEl) {
+        drawerBadgeEl.className = 'status-badge closed';
+        drawerBadgeEl.innerHTML = `<span class="status-dot"></span> CLOSED • ${timeNotice}`;
       }
       if (closedAlertBanner) {
         closedAlertBanner.style.display = 'block';
@@ -464,14 +473,56 @@ document.addEventListener('DOMContentLoaded', () => {
   // Event Listeners Setup
   // -------------------------------------------------------------
   function setupEventListeners() {
-    // Navigation Tabs
-    document.querySelectorAll('.nav-link, .mobile-nav-btn').forEach(btn => {
+    // Mobile Drawer Elements
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+    const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+    const closeMobileNav = document.getElementById('close-mobile-nav');
+
+    function openMobileDrawer() {
+      if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
+      if (mobileNavOverlay) mobileNavOverlay.classList.add('active');
+      if (mobileNavDrawer) mobileNavDrawer.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileDrawer() {
+      if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+      if (mobileNavOverlay) mobileNavOverlay.classList.remove('active');
+      if (mobileNavDrawer) mobileNavDrawer.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    if (mobileMenuToggle) {
+      mobileMenuToggle.addEventListener('click', () => {
+        if (mobileNavDrawer && mobileNavDrawer.classList.contains('active')) {
+          closeMobileDrawer();
+        } else {
+          openMobileDrawer();
+        }
+      });
+    }
+
+    if (closeMobileNav) closeMobileNav.addEventListener('click', closeMobileDrawer);
+    if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', closeMobileDrawer);
+
+    // Navigation Tabs (Desktop Header, Mobile Drawer, Mobile Bottom Bar)
+    document.querySelectorAll('.nav-link, .mobile-nav-btn, .mobile-drawer-link, .drawer-cta-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const tab = btn.dataset.tab;
         if (tab) {
           e.preventDefault();
-          document.querySelectorAll('.nav-link, .mobile-nav-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
+          closeMobileDrawer();
+
+          // Sync active state across all navigation elements
+          document.querySelectorAll('.nav-link, .mobile-nav-btn, .mobile-drawer-link').forEach(b => {
+            if (b.dataset.tab === tab) {
+              b.classList.add('active');
+            } else {
+              b.classList.remove('active');
+            }
+          });
+
           const targetSection = document.getElementById(tab);
           if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth' });
@@ -507,12 +558,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Add to cart click
-    document.getElementById('dishes-grid').addEventListener('click', (e) => {
+    // Add to cart click for grid items
+    document.getElementById('dishes-grid')?.addEventListener('click', (e) => {
       const addBtn = e.target.closest('.btn-add-cart');
       if (addBtn) {
         const dishId = addBtn.dataset.id;
         addToCart(dishId);
+      }
+    });
+
+    // Add to cart click for written text menu card (.btn-text-add)
+    document.addEventListener('click', (e) => {
+      const textAddBtn = e.target.closest('.btn-text-add');
+      if (textAddBtn) {
+        const dishId = textAddBtn.dataset.id;
+        if (dishId) {
+          addToCart(dishId);
+        }
       }
     });
 

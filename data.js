@@ -39,6 +39,7 @@ const GO_GOA_DATA = {
   },
 
   categories: [
+    { id: "sunday-specials", name: "Goan Sunday Specials", icon: "🌴", desc: "Go Goa Relaxing Sunday Specials & authentic delicacies" },
     { id: "street-food", name: "Street Food", icon: "🌶️", desc: "Popular Goan & Mumbai street eats" },
     { id: "starters", name: "Starters", icon: "🥟", desc: "Crispy, savory appetizers freshly prepared" },
     { id: "goan-seafood", name: "Goan Seafood Curries", icon: "🦐", desc: "Chef Roy's signature coastal recipes" },
@@ -58,6 +59,63 @@ const GO_GOA_DATA = {
   ],
 
   dishes: [
+    // Goan Relaxing Sunday Specials
+    {
+      id: "sun1",
+      categoryId: "sunday-specials",
+      name: "Goan Peas Pulao",
+      price: 7.99,
+      description: "No Goan Sunday or festival is complete without peas pulao (served with special Goan curry sauce) long grain basmati rice cooked in homemade veg stock with whole spices.",
+      image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80",
+      spicyLevel: 1,
+      isVeg: true,
+      isPopular: true
+    },
+    {
+      id: "sun2",
+      categoryId: "sunday-specials",
+      name: "Ros Omelette",
+      price: 8.99,
+      description: "Popular Goan street food sold on gaddas (stalls). Pungent coconut based ros (gravy) covered in egg masala omelet topped with onion, fresh coriander & squeeze of lemon. Served with two soft rolls.",
+      image: "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
+      spicyLevel: 2,
+      isVeg: false,
+      isPopular: true
+    },
+    {
+      id: "sun3",
+      categoryId: "sunday-specials",
+      name: "Mumbai Pav Bhaji",
+      price: 7.99,
+      description: "Soul street food of Mumbai. Delicious blend of spicy mixed vegetables topped with onion, butter and sprinkle of lemon. Served with two crispy toasted soft rolls.",
+      image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=600&q=80",
+      spicyLevel: 2,
+      isVeg: true,
+      isPopular: true
+    },
+    {
+      id: "sun4",
+      categoryId: "sunday-specials",
+      name: "Chicken Cafreal",
+      price: 10.99,
+      description: "Portuguese-influenced Goan classic: chicken on bone marinated overnight in fragrant Goan green masala and shallow fried. Served with crispy fries.",
+      image: "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=600&q=80",
+      spicyLevel: 2,
+      isVeg: false,
+      isPopular: true
+    },
+    {
+      id: "sun5",
+      categoryId: "sunday-specials",
+      name: "Goan Beef Chops (02 Pieces)",
+      price: 7.99,
+      description: "Perfect snack served at Goan parties. Crunchy shallow fried potato croquettes stuffed with flavourful beef mince.",
+      image: "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=600&q=80",
+      spicyLevel: 2,
+      isVeg: false,
+      isPopular: true
+    },
+
     // Street Food
     {
       id: "sf1",

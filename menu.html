@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Takeaway Menu Card | Go Goa Edinburgh</title>
+  <meta name="description" content="Official takeaway written menu for Go Goa Edinburgh. Authentic Goan and Indian home style cooking freshly prepared for pickup and delivery.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpg" href="https://gogoaedinburgh.co.uk/wp-content/uploads/2022/07/cropped-go-goa-indian-food-delivery-in-edinburgh-favicon--270x270.jpg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css?v=107">
+</head>
+<body class="menu-card-body">
+
+  <!-- Closed Restaurant Top Warning Banner -->
+  <div id="closed-alert-banner" class="closed-alert-banner"></div>
+
+  <!-- Header / Navigation -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="index.html#home" class="brand-logo">
+        <img src="images/logo-top.png" alt="Go Goa Takeaway Edinburgh" class="header-logo-img" />
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link active" data-tab="menu">Full Menu</a></li>
+        <li><a href="index.html#recipes" class="nav-link">Chef's Recipes</a></li>
+        <li><a href="index.html#story" class="nav-link">Our Story</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact & Map</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <div id="store-status-badge" class="status-badge open">
+          <span class="status-dot"></span> <span class="status-text">OPEN NOW</span>
+        </div>
+        <button class="cart-btn" id="open-cart-btn">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-btn-label">Cart</span>
+          <span class="cart-count cart-count-val">0</span>
+        </button>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay & Side Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-drawer-header">
+      <a href="index.html#home" class="brand-logo drawer-logo">
+        <img src="images/logo-top.png" alt="Go Goa Takeaway Edinburgh" class="header-logo-img" />
+      </a>
+      <button class="drawer-close-btn" id="close-mobile-nav" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-drawer-body">
+      <ul class="mobile-drawer-links">
+        <li>
+          <a href="index.html#home" class="mobile-drawer-link">
+            <span class="drawer-icon">🏠</span>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="menu.html" class="mobile-drawer-link active">
+            <span class="drawer-icon">📖</span>
+            <span>Full Menu</span>
+          </a>
+        </li>
+        <li>
+          <a href="index.html#recipes" class="mobile-drawer-link">
+            <span class="drawer-icon">👨‍🍳</span>
+            <span>Chef's Recipes</span>
+          </a>
+        </li>
+        <li>
+          <a href="index.html#story" class="mobile-drawer-link">
+            <span class="drawer-icon">📜</span>
+            <span>Our Story</span>
+          </a>
+        </li>
+        <li>
+          <a href="index.html#contact" class="mobile-drawer-link">
+            <span class="drawer-icon">📍</span>
+            <span>Contact & Map</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <div id="drawer-store-status" class="status-badge open">
+          <span class="status-dot"></span> OPEN NOW
+        </div>
+        <a href="#full-menu-card" class="drawer-cta-btn">
+          <span>Browse Menu Card</span>
+          <span>→</span>
+        </a>
+        <div class="drawer-contact-info">
+          <p>📞 <a href="tel:01316694048">0131 669 4048</a></p>
+          <p>📍 94 Duddingston Park, Edinburgh</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Page Header Banner -->
+  <section class="menu-hero-banner">
+    <div class="container">
+      <div class="menu-banner-content">
+        <span class="section-subtitle">Official Takeaway Card</span>
+        <h1 class="menu-banner-title">Go Goa Authentic Menu</h1>
+        <p class="menu-banner-desc">
+          Indian & Goan home style cooking prepared fresh for pickup & delivery. Click <strong>+ Add</strong> next to any dish price to add it straight to your order cart!
+        </p>
+        <div class="menu-banner-actions">
+          <button class="btn-print-menu" onclick="window.print();">
+            <span>🖨️ Print / Save Menu Card</span>
+          </button>
+          <a href="tel:01316694048" class="btn-call-order">
+            <span>📞 Call 0131 669 4048</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Written Menu Card Section -->
+  <main id="full-menu-card" class="pdf-menu-section">
+    <div class="container">
+
+      <div class="pdf-menu-notice-bar">
+        <span>🎉 <strong>20% OFF YOUR 1ST ONLINE ORDER & EVERY 11TH FREE!</strong></span>
+        <span>📍 94 Duddingston Park, EH15 1JZ | 📞 0131 669 4048</span>
+      </div>
+
+      <!-- PDF MENU PAGE 1 LAYOUT -->
+      <div class="pdf-menu-page-wrapper">
+        <div class="pdf-page-header">
+          <h2 class="pdf-page-title">MENU CARD — PAGE 1</h2>
+        </div>
+
+        <div class="pdf-menu-grid-2col">
+          <!-- PAGE 1 / COLUMN 1 -->
+          <div class="pdf-menu-col">
+            
+            <!-- SECTION: STREET FOOD -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Street food <span>(evening meeting)</span></h3>
+              
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">GOBI MANCHURIAN <small>(INDO-CHINESE)</small></span>
+                  <span class="pdf-dish-price">£5.99 <button class="btn-text-add" data-id="sf2">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Batter fried cauliflower florets in a fiery manchurian sauce.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">MIRAMAR SEV PAPDI CHAAT</span>
+                  <span class="pdf-dish-price">£5.99 <button class="btn-text-add" data-id="sf4">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Miramar street food temptation. Spicy aloo tikki topped with tamarind sauce, mint, yoghurt, nylon sev and crispy papdi.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">GOAN FISH CUTLETS <small>(02 PIECES)</small></span>
+                  <span class="pdf-dish-price">£6.99 <button class="btn-text-add" data-id="st7">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Semolina crusted minced fish marinated in special spices and shallow fried.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">CHICKEN MANCHURIAN <small>(INDO CHINESE)</small></span>
+                  <span class="pdf-dish-price">£7.99 <button class="btn-text-add" data-id="sf1">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Batter fried chicken breast pieces in a fiery manchurian sauce.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">MUMBAI SAMOSA CHAAT</span>
+                  <span class="pdf-dish-price">£5.99 <button class="btn-text-add" data-id="st1">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Vegetable samosa, crispy sev, mint & tamarind chutney, chick peas, pomegranate seeds. A combination of flavours on your tongue for guarantee.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">GOAN KING PRAWN CHILLY FRY</span>
+                  <span class="pdf-dish-price">£8.99 <button class="btn-text-add" data-id="sf6">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">King prawns sauteed with green and red pepper in exotic spices with a hint of Goan vinegar for extra tangy punch.</p>
+              </div>
+            </div>
+
+            <!-- SECTION: TANDOORI SPECIALITIES -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Tandoori specialities <span>(direct from clay oven)</span></h3>
+              <p class="pdf-section-note">TANDOORI MAINS SERVED WITH SALAD AND CHEF'S SPECIALLY CRAFTED SAUCE.</p>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">TANDOORI CHICKEN</span>
+                  <span class="pdf-dish-price">Starter £7.50 | Main £14.99 <button class="btn-text-add" data-id="tan1">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Half chicken on the bone massaged with roasted spices, kasoori methi & hung yogurt.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">CHICKEN TIKKA</span>
+                  <span class="pdf-dish-price">Starter £6.99 | Main £13.99 <button class="btn-text-add" data-id="tan2">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Chicken cubes marinated and kept overnight in a blanket of ginger & garlic paste, slowly massaged and mixed well with Indian spices to give that fiery experience.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">TANDOORI GOLDEN POMFRET</span>
+                  <span class="pdf-dish-price">£12.99 <button class="btn-text-add" data-id="tan3">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Whole golden pomfret marinated in chef's secret spices, slow cooked in tandoor.</p>
+              </div>
+            </div>
+
+            <!-- SECTION: ACCOMPANIMENTS -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Accompaniments</h3>
+              
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">GOAN SALAD</span>
+                  <span class="pdf-dish-price">£3.95 <button class="btn-text-add" data-id="acc1">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Cabbage, onion, tomato, fresh coriander, Goan vinaigrette dressing.</p>
+              </div>
+
+              <div class="pdf-simple-list">
+                <div class="pdf-simple-row"><span>Papadums</span> <span>£0.90 <button class="btn-text-add" data-id="acc2">+</button></span></div>
+                <div class="pdf-simple-row"><span>Mango Chutney</span> <span>£0.90 <button class="btn-text-add" data-id="acc3">+</button></span></div>
+                <div class="pdf-simple-row"><span>Mint Sauce</span> <span>£0.90 <button class="btn-text-add" data-id="acc4">+</button></span></div>
+                <div class="pdf-simple-row"><span>Mixed Pickle</span> <span>£0.90 <button class="btn-text-add" data-id="acc5">+</button></span></div>
+                <div class="pdf-simple-row"><span>Spiced Onion</span> <span>£0.90 <button class="btn-text-add" data-id="acc6">+</button></span></div>
+                <div class="pdf-simple-row"><span>Spicy Pakora Sauce</span> <span>£0.90 <button class="btn-text-add" data-id="acc7">+</button></span></div>
+              </div>
+
+              <div class="pdf-dish-item" style="margin-top: 10px;">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">RAITA</span>
+                  <span class="pdf-dish-price">£2.95 <button class="btn-text-add" data-id="acc8">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Yoghurt, cucumber, onion, tomato and roasted cumin.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- PAGE 1 / COLUMN 2 -->
+          <div class="pdf-menu-col">
+            
+            <!-- SECTION: SUNDAY SPECIALS -->
+            <div class="pdf-section-box highlight-box">
+              <h3 class="pdf-section-title">Go Goa Relaxing <span>Sunday Special</span></h3>
+              
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">GOAN PEAS PULAO</span>
+                  <span class="pdf-dish-price">£7.99 <button class="btn-text-add" data-id="sun1">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">No Goan Sunday or festival is complete without peas pulao (served with special Goan curry sauce) long grain basmati rice cooked in homemade veg stock with whole spices.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">ROS OMELETTE</span>
+                  <span class="pdf-dish-price">£8.99 <button class="btn-text-add" data-id="sun2">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">One of the popular street food in Goa sold on gaddas (local stalls). A pungent coconut based ros (gravy) covered in egg masala omelet topped with onion, fresh coriander and a squeeze of lemon. <strong>(SERVED WITH TWO SOFT ROLLS)</strong></p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">MUMBAI PAV BHAJI</span>
+                  <span class="pdf-dish-price">£7.99 <button class="btn-text-add" data-id="sun3">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Truly the soul street food of Mumbai. Delicious blend of spicy mixed vegetable topped with onion, butter and sprinkle of lemon. <strong>(SERVED WITH TWO CRISPY TOASTED SOFT ROLLS)</strong></p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">CHICKEN CAFREAL</span>
+                  <span class="pdf-dish-price">£10.99 <button class="btn-text-add" data-id="sun4">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">(Portuguese influenced Goan dish consumed widely in Goa) Chicken on bone marinated overnight in Goan green masala and shallow fried <strong>(SERVED WITH FRIES)</strong></p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">GOAN BEEF CHOPS <small>(02 PIECES)</small></span>
+                  <span class="pdf-dish-price">£7.99 <button class="btn-text-add" data-id="sun5">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">A perfect snack served at Goan parties. Crunchy shallow fried potato croquettes stuffed with flavourful beef mince.</p>
+              </div>
+            </div>
+
+            <!-- SECTION: DESSERT -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Dessert <span>(sweet tooth)</span></h3>
+              
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">GULAB JAMUN <small>(2PCS)</small></span>
+                  <span class="pdf-dish-price">£2.95 <button class="btn-text-add" data-id="des1">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Warm skimmed milk dumplings in rose flavored sugar syrup.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">CARROT HALWA</span>
+                  <span class="pdf-dish-price">£3.95 <button class="btn-text-add" data-id="des2">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Quintessential Indian dessert made with carrots, milk, clarified butter, sugar and cardamom.</p>
+              </div>
+
+              <div class="pdf-simple-list">
+                <div class="pdf-simple-row"><span>Mango Kulfi</span> <span>£2.50 <button class="btn-text-add" data-id="des3">+</button></span></div>
+                <div class="pdf-simple-row"><span>Pistachio Kulfi</span> <span>£2.50 <button class="btn-text-add" data-id="des4">+</button></span></div>
+              </div>
+            </div>
+
+            <!-- SECTION: COLD DRINKS -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Cold drinks</h3>
+              
+              <div class="pdf-simple-list">
+                <div class="pdf-simple-row"><span>Mango Lassi</span> <span>£3.50 <button class="btn-text-add" data-id="dr1">+</button></span></div>
+                <div class="pdf-simple-row"><span>Sweet Lassi</span> <span>£2.95 <button class="btn-text-add" data-id="dr2">+</button></span></div>
+                <div class="pdf-simple-row"><span>1.5 Ltr Bottle (Coke, Diet Coke, Fanta, Irn-Bru)</span> <span>£3.50 <button class="btn-text-add" data-id="dr3">+</button></span></div>
+                <div class="pdf-simple-row"><span>330ml Cans (Coke, Diet Coke, Sprite, Fanta, Irn-Bru)</span> <span>£1.50 <button class="btn-text-add" data-id="dr4">+</button></span></div>
+                <div class="pdf-simple-row"><span>Red Bull</span> <span>£2.49 <button class="btn-text-add" data-id="dr5">+</button></span></div>
+                <div class="pdf-simple-row"><span>Still Water</span> <span>£0.99 <button class="btn-text-add" data-id="dr6">+</button></span></div>
+              </div>
+            </div>
+
+            <div class="pdf-chef-welcome-card">
+              <h4>Chef Roy's Message</h4>
+              <p>"Hi Edinburgh, my name is Roy, owner of Go Goa. I worked for 20 years as a chef in Goa, Dubai, US and cruise ships. I can't wait for you to try my food!"</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- PDF MENU PAGE 2 LAYOUT -->
+      <div class="pdf-menu-page-wrapper" style="margin-top: 50px;">
+        <div class="pdf-page-header">
+          <h2 class="pdf-page-title">MENU CARD — PAGE 2</h2>
+        </div>
+
+        <div class="pdf-menu-grid-2col">
+          <!-- PAGE 2 / COLUMN 1 -->
+          <div class="pdf-menu-col">
+
+            <!-- SECTION: STARTERS -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Starters <span>(time pass)</span></h3>
+              
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">VEGETABLE PAKORA</span>
+                  <span class="pdf-dish-price">£4.99 <button class="btn-text-add" data-id="st2">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Fresh vegetables seasoned, lightly battered in gram flour and deep fried.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">GOAN CHICKEN 65</span>
+                  <span class="pdf-dish-price">£6.99 <button class="btn-text-add" data-id="st3">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Diced chicken breast pieces marinated with Indian spices ginger, garlic and crispy fried.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">KING PRAWN KOLIWADA</span>
+                  <span class="pdf-dish-price">£8.50 <button class="btn-text-add" data-id="st4">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">King prawns marinated with ground spices, battered and deep fried.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">FISH AMRITSAR</span>
+                  <span class="pdf-dish-price">£6.99 <button class="btn-text-add" data-id="st5">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">A lightly battered fish fry in Indian spices, ginger & garlic paste and gram flour (Chickpea).</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">CHICKEN PAKORA</span>
+                  <span class="pdf-dish-price">£5.99 <button class="btn-text-add" data-id="st6">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Chicken cubes marinated with Indian spices, ginger, garlic, battered and deep fried.</p>
+              </div>
+
+              <div class="pdf-simple-list">
+                <div class="pdf-simple-row"><span>Chips</span> <span>£3.99 <button class="btn-text-add" data-id="ch1">+</button></span></div>
+                <div class="pdf-simple-row"><span>Chips with Cheese</span> <span>£4.99 <button class="btn-text-add" data-id="ch2">+</button></span></div>
+                <div class="pdf-simple-row"><span>Honey Garlic Chips</span> <span>£4.99 <button class="btn-text-add" data-id="ch3">+</button></span></div>
+                <div class="pdf-simple-row"><span>Masala Chips</span> <span>£4.25 <button class="btn-text-add" data-id="ch4">+</button></span></div>
+              </div>
+            </div>
+
+            <!-- SECTION: CLASSIC FUSION CURRIES -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Classic fusion curries</h3>
+              <div class="pdf-price-banner">
+                VEG £8.99 | CHICKEN £9.99 | LAMB £10.99 | KING PRAWN £12.99
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">KORMA</span><button class="btn-text-add" data-id="cf1">+ Add</button></div>
+                <p class="pdf-dish-desc">Cooked in a rich almond, coconut & cashew nut gravy.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">BHUNA</span><button class="btn-text-add" data-id="cf2">+ Add</button></div>
+                <p class="pdf-dish-desc">A classic masala based curry simmered until the gravy is roasted in onion, tomato, ginger, garlic and spices.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">JALFREZI</span><button class="btn-text-add" data-id="cf3">+ Add</button></div>
+                <p class="pdf-dish-desc">Cooked with peppers and chilly in a special onion tomato gravy & dash of tomato ketchup.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">DO-PYAZA</span><button class="btn-text-add" data-id="cf4">+ Add</button></div>
+                <p class="pdf-dish-desc">Cooked with diced onions, tomato, ginger and garlic in a thick gravy.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">SPICY MADRAS</span><button class="btn-text-add" data-id="cf5">+ Add</button></div>
+                <p class="pdf-dish-desc">Cooked with onion, tomato and mustard seeds in a thick coconut based gravy.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">DHANSAK</span><button class="btn-text-add" data-id="cf6">+ Add</button></div>
+                <p class="pdf-dish-desc">Cooked in a tangy and slightly spicy sauce, made lusciously thick and rich with yellow lentils.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">TIKKA MASALA</span><button class="btn-text-add" data-id="cf7">+ Add</button></div>
+                <p class="pdf-dish-desc">Simmered in creamy tomato and onion sauce.</p>
+              </div>
+            </div>
+
+            <!-- SECTION: BIRYANI -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Goan special biryani's <span>(rice journey)</span></h3>
+              <p class="pdf-section-note">SERVED WITH RAITA OR BIRYANI SAUCE! BASMATI RICE STEAMED IN BIRYANI MASALA, YOGURT & MINT.</p>
+              <div class="pdf-price-banner">
+                VEG £10.99 | CHICKEN £11.99 | LAMB £12.99 | KING PRAWN £13.99
+                <button class="btn-text-add" data-id="bir1" style="margin-left: 10px;">+ Add Biryani</button>
+              </div>
+            </div>
+
+            <!-- SECTION: GOAN SEAFOOD CURRIES -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Goan Curries <span>(from the sea)</span></h3>
+              <p class="pdf-section-note">ALL GOAN SEAFOOD CURRIES ARE COOKED IN TRADITIONAL CLAY POTS.</p>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">MOM'S GOAN CURRY</span>
+                  <span class="pdf-dish-price">Fish £11.99 | Prawn £12.95 <button class="btn-text-add" data-id="gsea1">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Fillet of fish or king prawn simmered in a mouth watering gravy of grated coconut with freshly ground spices.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">BARDEZ AMBOT TIK</span>
+                  <span class="pdf-dish-price">Fish £11.99 | Prawn £12.95 <button class="btn-text-add" data-id="gsea2">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">A delicacy cooked with patience to incorporate the balance of sweet, sour gravy & hand picked spices. Fiery yet tangy.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">PANJIM GREEN CURRY</span>
+                  <span class="pdf-dish-price">Fish £11.99 | Prawn £12.95 <button class="btn-text-add" data-id="gsea3">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Fish or king prawns cooked in green masala made from fresh coriander, green chillies and mint leaves.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">ARAMBOL XEC XEC</span>
+                  <span class="pdf-dish-price">Fish £11.99 | Prawn £12.95 <button class="btn-text-add" data-id="gsea4">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Traditional curry made from scorched spices for a smoky flavour in a rich coconut based gravy.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">SALCETE MASALA</span>
+                  <span class="pdf-dish-price">Fish £11.99 | Prawn £12.95 <button class="btn-text-add" data-id="gsea5">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Fillets of fish or king prawns cooked in Goan masala to give it a slightly rich aroma.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- PAGE 2 / COLUMN 2 -->
+          <div class="pdf-menu-col">
+
+            <!-- SECTION: GOAN VEG CURRIES -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Goan veg curries <span>(village specialities)</span></h3>
+              
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">MARGAO VEG CALDIN</span>
+                  <span class="pdf-dish-price">£8.99 <button class="btn-text-add" data-id="gveg1">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Flavoured medley of vegetables cooked in Goan coconut based milk with mild spices to give it a stewy taste.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">VILLAGE DAL FRY</span>
+                  <span class="pdf-dish-price">£8.99 <button class="btn-text-add" data-id="gveg2">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Lentils cooked with spices and curry leaf, topped with heated oil and Indian spices to give it a village style flavour.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">HINDU STYLE GOAN EGGPLANT MASALA</span>
+                  <span class="pdf-dish-price">£9.50 <button class="btn-text-add" data-id="gveg3">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Moderately spiced eggplant cooked in combination of ginger, garlic, cumin and Goan red vinegar masala.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">GOAN CHONYACHO ROSS</span>
+                  <span class="pdf-dish-price">£8.99 <button class="btn-text-add" data-id="gveg4">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">A popular delicacy prepared in every Hindu house in Goa. Chickpeas cooked in onion, tomato, curry leaves, roasted spices and coconut.</p>
+              </div>
+
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head">
+                  <span class="pdf-dish-name">KHATKHATE</span>
+                  <span class="pdf-dish-price">£8.99 <button class="btn-text-add" data-id="gveg5">+ Add</button></span>
+                </div>
+                <p class="pdf-dish-desc">Mix vegetable stew cooked in a rich yellow based coconut gravy and selected ground spices.</p>
+              </div>
+            </div>
+
+            <!-- SECTION: HOUSE SPECIALS VEG & NON-VEG -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">House specials <span>(Veg Curries mains)</span></h3>
+              
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">ALOO BHINDI</span> <span class="pdf-dish-price">£8.99 <button class="btn-text-add" data-id="hsv1">+ Add</button></span></div>
+                <p class="pdf-dish-desc">Potatoes and okra cooked in a spiced masala sauce.</p>
+              </div>
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">KADAI PANEER</span> <span class="pdf-dish-price">£9.99 <button class="btn-text-add" data-id="hsv2">+ Add</button></span></div>
+                <p class="pdf-dish-desc">Chunks of cottage cheese cooked with peppers, onion and indian spices.</p>
+              </div>
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">GOBHI METHI MALAI</span> <span class="pdf-dish-price">£8.99 <button class="btn-text-add" data-id="hsv3">+ Add</button></span></div>
+                <p class="pdf-dish-desc">Steamed cauliflower florets sauteed in creamy fenugreek sauce.</p>
+              </div>
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">VEG DIWANI HANDI</span> <span class="pdf-dish-price">£8.99 <button class="btn-text-add" data-id="hsv4">+ Add</button></span></div>
+                <p class="pdf-dish-desc">Medley of fresh veggies cooked in chef's special gravy.</p>
+              </div>
+            </div>
+
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">House special non veg <span>(Pan Indian)</span></h3>
+              
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">CHETTINAD</span> <span class="pdf-dish-price">Chicken £9.99 | Lamb £10.99 <button class="btn-text-add" data-id="hsn1">+ Add</button></span></div>
+                <p class="pdf-dish-desc">Choice of chicken or lamb cooked in homemade chettinad masala.</p>
+              </div>
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">KADAI</span> <span class="pdf-dish-price">Chicken £9.99 | Lamb £10.99 <button class="btn-text-add" data-id="hsn2">+ Add</button></span></div>
+                <p class="pdf-dish-desc">Choice of chicken or lamb sautéed with ginger, garlic, peppers and spices.</p>
+              </div>
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">CHICKEN KORI GASSI</span> <span class="pdf-dish-price">£10.50 <button class="btn-text-add" data-id="hsn4">+ Add</button></span></div>
+                <p class="pdf-dish-desc">Chicken cooked in onion gravy, spices and coconut. Traditional Mangalorean chicken curry!</p>
+              </div>
+              <div class="pdf-dish-item">
+                <div class="pdf-dish-head"><span class="pdf-dish-name">CHICKEN CHANGEZI</span> <span class="pdf-dish-price">£12.50 <button class="btn-text-add" data-id="hsn6">+ Add</button></span></div>
+                <p class="pdf-dish-desc">Tandoori chicken on bone simmered in medium spiced rich and creamy sauce. New Delhi favourite!</p>
+              </div>
+            </div>
+
+            <!-- SECTION: DHABA STYLE MAINS -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Dhaba style mains <span>(veg / non veg)</span></h3>
+              <p class="pdf-section-note">DHABA STYLE DELICACIES SITUATED ON NATIONAL HIGHWAYS OF INDIA FOR LEISURE LOCAL CUISINE.</p>
+
+              <div class="pdf-simple-list">
+                <div class="pdf-simple-row"><span>Dal Makhani</span> <span>Main £10.50 | Side £6.99 <button class="btn-text-add" data-id="dh1">+</button></span></div>
+                <div class="pdf-simple-row"><span>Aloo Mutter</span> <span>£8.50 <button class="btn-text-add" data-id="dh2">+</button></span></div>
+                <div class="pdf-simple-row"><span>Adraki Dhaba Dal Tadka</span> <span>£8.50 <button class="btn-text-add" data-id="dh3">+</button></span></div>
+                <div class="pdf-simple-row"><span>Lasooni Shahi Paneer</span> <span>£9.99 <button class="btn-text-add" data-id="dh5">+</button></span></div>
+                <div class="pdf-simple-row"><span>Lamb Rogan Josh</span> <span>£10.99 <button class="btn-text-add" data-id="dh7">+</button></span></div>
+                <div class="pdf-simple-row"><span>Dhaba Butter Chicken</span> <span>£10.50 <button class="btn-text-add" data-id="dh8">+</button></span></div>
+                <div class="pdf-simple-row"><span>Chicken Curry (On The Bone)</span> <span>£10.50 <button class="btn-text-add" data-id="dh9">+</button></span></div>
+                <div class="pdf-simple-row"><span>Chilly Garlic Chicken</span> <span>£10.50 <button class="btn-text-add" data-id="dh10">+</button></span></div>
+                <div class="pdf-simple-row"><span>Rara Gosht</span> <span>£11.99 <button class="btn-text-add" data-id="dh12">+</button></span></div>
+              </div>
+            </div>
+
+            <!-- SECTION: RICE & BREADS -->
+            <div class="pdf-section-box">
+              <h3 class="pdf-section-title">Rice & Tandoori Breads</h3>
+              
+              <div class="pdf-simple-list">
+                <div class="pdf-simple-row"><span>Steamed Rice</span> <span>£3.25 <button class="btn-text-add" data-id="rc1">+</button></span></div>
+                <div class="pdf-simple-row"><span>Saffron Pulao Rice</span> <span>£3.50 <button class="btn-text-add" data-id="rc2">+</button></span></div>
+                <div class="pdf-simple-row"><span>Jeera Rice</span> <span>£3.50 <button class="btn-text-add" data-id="rc3">+</button></span></div>
+                <div class="pdf-simple-row"><span>Vegetable Fried Rice (Indo-Chinese)</span> <span>£5.95 <button class="btn-text-add" data-id="rc6">+</button></span></div>
+                <div class="pdf-simple-row"><span>Chicken Fried Rice (Indo-Chinese)</span> <span>£6.99 <button class="btn-text-add" data-id="rc7">+</button></span></div>
+                <div class="pdf-simple-row"><span>Plain Naan</span> <span>£2.75 <button class="btn-text-add" data-id="br1">+</button></span></div>
+                <div class="pdf-simple-row"><span>Butter Naan</span> <span>£2.99 <button class="btn-text-add" data-id="br2">+</button></span></div>
+                <div class="pdf-simple-row"><span>Garlic Naan</span> <span>£3.25 <button class="btn-text-add" data-id="br3">+</button></span></div>
+                <div class="pdf-simple-row"><span>Chilly Garlic Naan</span> <span>£3.50 <button class="btn-text-add" data-id="br4">+</button></span></div>
+                <div class="pdf-simple-row"><span>Cheese Naan</span> <span>£3.99 <button class="btn-text-add" data-id="br5">+</button></span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Cart Drawer Overlay -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3>🛒 Your Order</h3>
+        <button class="cart-close-btn" id="close-cart-btn">&times;</button>
+      </div>
+
+      <div class="order-type-toggle">
+        <button class="type-btn active" id="type-pickup">
+          <span>🛍️ Collection (Pickup)</span>
+        </button>
+        <button class="type-btn" id="type-delivery">
+          <span>🛵 Delivery (£2.50)</span>
+        </button>
+      </div>
+
+      <div id="discount-notice" class="discount-notice" style="display: none;"></div>
+
+      <div class="cart-body" id="cart-items-container">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-summary-line">
+          <span>Subtotal</span>
+          <span id="cart-subtotal">£0.00</span>
+        </div>
+        <div class="cart-summary-line discount-line" id="discount-line" style="display:none; color: var(--accent-saffron);">
+          <span>10% Wed/Thu Discount</span>
+          <span id="cart-discount">-£0.00</span>
+        </div>
+        <div class="cart-summary-line">
+          <span>Delivery Charge</span>
+          <span id="cart-delivery">FREE (Pickup)</span>
+        </div>
+        <div class="cart-summary-line grand-total">
+          <span>Total Amount</span>
+          <span id="cart-grand-total">£0.00</span>
+        </div>
+
+        <button class="btn-checkout" id="checkout-btn">
+          <span>Proceed to Checkout →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html#home" class="brand-logo">
+          <img src="images/logo-top.png" alt="Go Goa Takeaway" class="header-logo-img" />
+        </a>
+        <p>
+          Edinburgh's premier authentic Goan & Indian takeaway. Bringing 450 years of Portuguese-influenced Goan culinary heritage straight to your home.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="menu.html">Full Online Menu Card</a></li>
+          <li><a href="index.html#recipes">Chef Recipes</a></li>
+          <li><a href="index.html#story">Our Story</a></li>
+          <li><a href="index.html#contact">Contact & Map</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Popular Dishes</h4>
+        <ul class="footer-links">
+          <li><a href="menu.html">Mom's Goan Fish Curry</a></li>
+          <li><a href="menu.html">Chicken Xacuti</a></li>
+          <li><a href="menu.html">Pork Vindaloo</a></li>
+          <li><a href="menu.html">Ros Omelette</a></li>
+          <li><a href="menu.html">Miramar Sev Papdi Chaat</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect & Location</h4>
+        <p style="color: #B2C4CE; font-size: 0.95rem; margin-bottom: 12px;">94 Duddingston Park, Edinburgh, EH15 1JZ</p>
+        <p style="color: var(--accent-gold); font-weight: 700; margin-bottom: 12px;">📞 0131 669 4048</p>
+        <a href="https://maps.google.com/maps?q=94%20Duddingston%20Park,%20Edinburgh,%20EH15%201JZ" target="_blank" rel="noopener" style="color: var(--accent-gold); text-decoration: underline; font-weight: 600; font-size: 0.9rem;">📍 Open in Google Maps →</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        &copy; 2026 Go Goa Takeaway Edinburgh. All rights reserved. Built for exceptional dining user experience.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav">
+    <a href="index.html#home" class="mobile-nav-btn">
+      <span class="mobile-nav-icon">🏠</span>
+      <span>Home</span>
+    </a>
+    <a href="menu.html" class="mobile-nav-btn active">
+      <span class="mobile-nav-icon">📖</span>
+      <span>Menu</span>
+    </a>
+    <a href="index.html#recipes" class="mobile-nav-btn">
+      <span class="mobile-nav-icon">👨‍🍳</span>
+      <span>Recipes</span>
+    </a>
+    <a href="index.html#contact" class="mobile-nav-btn">
+      <span class="mobile-nav-icon">📍</span>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- JavaScript Files -->
+  <script src="data.js?v=107"></script>
+  <script src="app.js?v=107"></script>
+</body>
+</html>

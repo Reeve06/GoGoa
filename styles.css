@@ -382,6 +382,199 @@ img {
 }
 
 /* -------------------------------------------------------------
+ * Mobile Hamburger Menu Toggle Button & Drawer
+ * ------------------------------------------------------------- */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 42px;
+  height: 40px;
+  padding: 10px 9px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 1002;
+}
+
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle.active {
+  background: rgba(237, 95, 94, 0.2);
+  border-color: var(--accent-saffron);
+}
+
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-white);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Nav Overlay Backdrop */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 30, 43, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile Side Drawer Container */
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 85vw;
+  background: var(--bg-dark-surface);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 2001;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+
+.mobile-nav-drawer.active {
+  transform: translateX(0);
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawer-logo .header-logo-img {
+  height: 40px;
+}
+
+.drawer-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-white);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: var(--transition);
+}
+
+.drawer-close-btn:hover {
+  background: var(--accent-saffron);
+  color: white;
+}
+
+.mobile-drawer-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+.mobile-drawer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  color: var(--text-light);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.drawer-icon {
+  font-size: 1.2rem;
+}
+
+.mobile-drawer-link:hover,
+.mobile-drawer-link.active {
+  background: rgba(237, 95, 94, 0.15);
+  color: var(--accent-saffron);
+  border-left: 3px solid var(--accent-saffron);
+}
+
+.mobile-drawer-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.drawer-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-saffron) 100%);
+  color: var(--primary-navy);
+  font-weight: 800;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(237, 95, 94, 0.3);
+  transition: var(--transition);
+}
+
+.drawer-contact-info {
+  font-size: 0.85rem;
+  color: #B2C4CE;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.drawer-contact-info a {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+/* -------------------------------------------------------------
  * Hero Section
  * ------------------------------------------------------------- */
 .hero-section {
@@ -1681,6 +1874,20 @@ img {
 /* -------------------------------------------------------------
  * Responsive Layout Breakpoints
  * ------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .header-container {
+    gap: 12px;
+  }
+}
+
 @media (max-width: 992px) {
   .hero-grid,
   .story-grid,
@@ -1703,16 +1910,35 @@ img {
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  .main-header {
+    height: 72px;
   }
-  
+
+  .header-container {
+    height: 72px;
+  }
+
+  .header-logo-img {
+    height: 44px;
+  }
+
+  .status-badge {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .cart-btn {
+    padding: 8px 14px;
+    font-size: 0.88rem;
+    gap: 6px;
+  }
+
   .mobile-bottom-nav {
     display: flex;
   }
 
   body {
-    padding-bottom: 60px;
+    padding-bottom: 65px;
   }
   
   .hero-title {
@@ -1725,5 +1951,368 @@ img {
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header {
+    height: 66px;
+  }
+
+  .header-container {
+    height: 66px;
+    padding: 0 12px;
+  }
+
+  .header-logo-img {
+    height: 38px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  /* Compact store status on small mobile screens */
+  .status-badge {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+
+  .status-badge .status-text {
+    font-size: 0.7rem;
+  }
+
+  .cart-btn {
+    padding: 7px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* -------------------------------------------------------------
+ * Full Menu Page Banner & Print Styles
+ * ------------------------------------------------------------- */
+.menu-hero-banner {
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-dark-surface) 100%);
+  color: var(--text-white);
+  padding: 60px 0 40px 0;
+  border-bottom: 1px solid var(--border-dark);
+  text-align: center;
+}
+
+.menu-banner-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.menu-banner-title {
+  color: var(--text-white);
+  font-size: 2.8rem;
+  margin: 10px 0 16px 0;
+}
+
+.menu-banner-desc {
+  color: #B2C4CE;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.menu-banner-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-print-menu {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-print-menu:hover {
+  background: var(--accent-saffron);
+  border-color: var(--accent-saffron);
+}
+
+.btn-call-order {
+  background: var(--accent-gold);
+  color: var(--primary-navy);
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  transition: var(--transition);
+}
+
+.btn-call-order:hover {
+  background: var(--accent-gold-hover);
+}
+
+@media print {
+  .main-header,
+  .mobile-bottom-nav,
+  .menu-controls,
+  .btn-add-cart,
+  .cart-drawer-overlay,
+  .main-footer,
+  .btn-print-menu {
+    display: none !important;
+  }
+
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .pdf-menu-page-wrapper {
+    border: none !important;
+    box-shadow: none !important;
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .pdf-section-box {
+    background: #FAFAFA !important;
+    border: 1px solid #ddd !important;
+    color: #000000 !important;
+  }
+
+  .pdf-dish-name,
+  .pdf-section-title {
+    color: #000000 !important;
+  }
+
+  .btn-text-add {
+    display: none !important;
+  }
+}
+
+/* -------------------------------------------------------------
+ * PDF Written Menu Layout Styling (Brand Colors & Typography)
+ * ------------------------------------------------------------- */
+.pdf-menu-section {
+  padding: 50px 0 80px 0;
+  background: var(--bg-main);
+}
+
+.pdf-menu-notice-bar {
+  background: linear-gradient(90deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
+  color: var(--text-white);
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-weight: 700;
+  border-left: 5px solid var(--accent-saffron);
+  box-shadow: var(--shadow-md);
+}
+
+.pdf-menu-page-wrapper {
+  background: var(--bg-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  color: var(--text-light);
+}
+
+.pdf-page-header {
+  border-bottom: 2px solid var(--accent-saffron);
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.pdf-page-title {
+  color: var(--accent-saffron);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.pdf-menu-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.pdf-section-box {
+  background: var(--bg-dark-surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 28px;
+}
+
+.pdf-section-box.highlight-box {
+  border: 2px solid var(--accent-saffron);
+  background: linear-gradient(135deg, rgba(237, 95, 94, 0.1) 0%, var(--bg-dark-surface) 100%);
+}
+
+.pdf-section-title {
+  color: var(--accent-gold);
+  font-size: 1.35rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+}
+
+.pdf-section-title span {
+  color: #B2C4CE;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.pdf-section-note {
+  font-size: 0.8rem;
+  color: var(--accent-saffron);
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.pdf-dish-item {
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+}
+
+.pdf-dish-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.pdf-dish-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.pdf-dish-name {
+  color: var(--text-white);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.pdf-dish-name small {
+  color: #B2C4CE;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.pdf-dish-price {
+  color: var(--accent-saffron);
+  font-size: 0.95rem;
+  font-weight: 800;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pdf-dish-desc {
+  color: #B2C4CE;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  margin-top: 4px;
+}
+
+.pdf-price-banner {
+  background: rgba(237, 95, 94, 0.15);
+  border: 1px solid var(--accent-saffron);
+  color: var(--accent-saffron);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pdf-simple-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.pdf-simple-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-light);
+  font-size: 0.92rem;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-sm);
+}
+
+.pdf-simple-row span:last-child {
+  color: var(--accent-saffron);
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-text-add {
+  background: var(--accent-saffron);
+  color: #FFFFFF;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+.btn-text-add:hover {
+  background: var(--accent-gold-hover);
+  transform: scale(1.05);
+}
+
+.pdf-chef-welcome-card {
+  background: linear-gradient(135deg, rgba(237, 95, 94, 0.2) 0%, rgba(3, 46, 63, 0.9) 100%);
+  border: 1px solid var(--accent-saffron);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  color: var(--text-white);
+}
+
+.pdf-chef-welcome-card h4 {
+  color: var(--accent-saffron);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 992px) {
+  .pdf-menu-grid-2col {
+    grid-template-columns: 1fr;
+  }
+
+  .pdf-menu-page-wrapper {
+    padding: 20px 16px;
   }
 }
