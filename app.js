@@ -226,6 +226,57 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // -------------------------------------------------------------
+  // Show Specific Dish in Menu & Highlight
+  // -------------------------------------------------------------
+  function showDishInMenu(dishId) {
+    const dish = GO_GOA_DATA.dishes.find(d => d.id === dishId);
+    
+    // Check if we are on index.html (has dishes-grid)
+    const grid = document.getElementById('dishes-grid');
+    if (grid) {
+      // Switch category to that dish's category so it's fully rendered and visible
+      if (dish) {
+        state.selectedCategory = dish.categoryId;
+        state.searchQuery = '';
+        state.dietaryFilter = 'all';
+        const searchInput = document.getElementById('menu-search');
+        if (searchInput) searchInput.value = '';
+        document.querySelectorAll('.chip-btn').forEach(b => {
+          if (b.dataset.filter === 'all') b.classList.add('active');
+          else b.classList.remove('active');
+        });
+        renderCategories();
+        renderDishes();
+      }
+
+      setTimeout(() => {
+        const dishCard = document.querySelector(`.dish-card[data-id="${dishId}"]`);
+        if (dishCard) {
+          dishCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          dishCard.classList.remove('dish-card-highlighted');
+          void dishCard.offsetWidth; // Reflow to restart animation
+          dishCard.classList.add('dish-card-highlighted');
+          setTimeout(() => dishCard.classList.remove('dish-card-highlighted'), 3000);
+        } else {
+          document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return;
+    }
+
+    // Check if on menu.html (written menu card)
+    const textAddBtn = document.querySelector(`.btn-text-add[data-id="${dishId}"], [data-id="${dishId}"]`);
+    if (textAddBtn) {
+      const dishItem = textAddBtn.closest('.pdf-dish-item') || textAddBtn;
+      dishItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      dishItem.classList.remove('pdf-dish-highlighted');
+      void dishItem.offsetWidth;
+      dishItem.classList.add('pdf-dish-highlighted');
+      setTimeout(() => dishItem.classList.remove('pdf-dish-highlighted'), 3000);
+    }
+  }
+
+  // -------------------------------------------------------------
   // Recipes Rendering & Interactive Modal
   // -------------------------------------------------------------
   function renderRecipes() {
@@ -660,6 +711,30 @@ document.addEventListener('DOMContentLoaded', () => {
       saveCart();
       updateCartUI();
     });
+
+    // Popular dish links in footer & across site
+    document.addEventListener('click', (e) => {
+      const dishLink = e.target.closest('.popular-dish-link, [data-dish-id]');
+      if (dishLink) {
+        const dishId = dishLink.dataset.dishId || dishLink.getAttribute('href')?.replace(/^.*#dish-/, '');
+        if (dishId) {
+          // If on same page and menu exists
+          if (document.getElementById('dishes-grid') || document.querySelector(`[data-id="${dishId}"]`)) {
+            e.preventDefault();
+            showDishInMenu(dishId);
+            try {
+              history.pushState(null, '', `#dish-${dishId}`);
+            } catch (err) {}
+          }
+        }
+      }
+    });
+
+    // Handle incoming URL hash like #dish-gs1 on page load
+    if (window.location.hash && window.location.hash.includes('#dish-')) {
+      const initialDishId = window.location.hash.replace(/^.*#dish-/, '');
+      setTimeout(() => showDishInMenu(initialDishId), 350);
+    }
   }
 
   // Run Initialization
