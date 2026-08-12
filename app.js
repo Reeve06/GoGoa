@@ -443,29 +443,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!toast) {
       toast = document.createElement('div');
       toast.id = 'app-toast';
-      toast.style.cssText = `
-        position: fixed;
-        bottom: 80px;
-        right: 24px;
-        background: var(--primary-navy);
-        color: white;
-        padding: 14px 26px;
-        border-radius: var(--radius-full);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        border: 1px solid var(--accent-gold);
-        font-weight: 700;
-        z-index: 4000;
-        transition: all 0.3s ease;
-      `;
+      toast.className = 'app-toast';
       document.body.appendChild(toast);
     }
     toast.textContent = message;
-    toast.style.opacity = '1';
-    toast.style.transform = 'translateY(0)';
+    toast.classList.add('visible');
 
     setTimeout(() => {
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateY(10px)';
+      toast.classList.remove('visible');
     }, 3000);
   }
 
@@ -532,7 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Category Tabs click
-    document.getElementById('category-scroll').addEventListener('click', (e) => {
+    document.getElementById('category-scroll')?.addEventListener('click', (e) => {
       const btn = e.target.closest('.cat-tab-btn');
       if (btn) {
         state.selectedCategory = btn.dataset.cat;
@@ -542,13 +527,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Search input
-    document.getElementById('menu-search').addEventListener('input', (e) => {
+    document.getElementById('menu-search')?.addEventListener('input', (e) => {
       state.searchQuery = e.target.value;
       renderDishes();
     });
 
     // Dietary filter chips
-    document.getElementById('dietary-chips').addEventListener('click', (e) => {
+    document.getElementById('dietary-chips')?.addEventListener('click', (e) => {
       const btn = e.target.closest('.chip-btn');
       if (btn) {
         document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
@@ -579,7 +564,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Recipe modal triggers
-    document.getElementById('recipes-grid').addEventListener('click', (e) => {
+    document.getElementById('recipes-grid')?.addEventListener('click', (e) => {
       const btn = e.target.closest('.btn-recipe-view');
       if (btn) {
         openRecipeModal(btn.dataset.recipeId);
@@ -588,11 +573,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Closed Modal buttons
     document.getElementById('close-closed-modal')?.addEventListener('click', () => {
-      document.getElementById('closed-modal').classList.remove('active');
+      document.getElementById('closed-modal')?.classList.remove('active');
     });
 
     document.getElementById('understand-preorder-btn')?.addEventListener('click', () => {
-      document.getElementById('closed-modal').classList.remove('active');
+      document.getElementById('closed-modal')?.classList.remove('active');
     });
 
     // Cart Drawer Toggle
@@ -600,26 +585,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeCartBtn = document.getElementById('close-cart-btn');
     const cartOverlay = document.getElementById('cart-drawer-overlay');
 
-    if (cartBtn) cartBtn.addEventListener('click', () => cartOverlay.classList.add('active'));
-    if (closeCartBtn) closeCartBtn.addEventListener('click', () => cartOverlay.classList.remove('active'));
+    if (cartBtn) cartBtn.addEventListener('click', () => cartOverlay?.classList.add('active'));
+    if (closeCartBtn) closeCartBtn.addEventListener('click', () => cartOverlay?.classList.remove('active'));
 
     // Cart Order Type Switcher
-    document.getElementById('type-pickup').addEventListener('click', () => {
+    document.getElementById('type-pickup')?.addEventListener('click', () => {
       state.orderType = 'pickup';
-      document.getElementById('type-pickup').classList.add('active');
-      document.getElementById('type-delivery').classList.remove('active');
+      document.getElementById('type-pickup')?.classList.add('active');
+      document.getElementById('type-delivery')?.classList.remove('active');
       updateCartUI();
     });
 
-    document.getElementById('type-delivery').addEventListener('click', () => {
+    document.getElementById('type-delivery')?.addEventListener('click', () => {
       state.orderType = 'delivery';
-      document.getElementById('type-delivery').classList.add('active');
-      document.getElementById('type-pickup').classList.remove('active');
+      document.getElementById('type-delivery')?.classList.add('active');
+      document.getElementById('type-pickup')?.classList.remove('active');
       updateCartUI();
     });
 
     // Cart Quantity Buttons
-    document.getElementById('cart-items-container').addEventListener('click', (e) => {
+    document.getElementById('cart-items-container')?.addEventListener('click', (e) => {
       if (e.target.classList.contains('btn-qty-plus')) {
         updateQuantity(e.target.dataset.id, 1);
       } else if (e.target.classList.contains('btn-qty-minus')) {
@@ -627,14 +612,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Promo code section removed - discount is automatic on Wed/Thu
-    // Cart Quantity Buttons
-    document.getElementById('checkout-btn').addEventListener('click', () => {
+    // Checkout Button
+    document.getElementById('checkout-btn')?.addEventListener('click', () => {
       if (state.cart.length === 0) {
         showToast('Your cart is empty!');
         return;
       }
-      cartOverlay.classList.remove('active');
+      cartOverlay?.classList.remove('active');
 
       if (!state.isOpen) {
         alert(`🕒 PRE-ORDER RECEIVED FOR OPENING TIME!\n\nStatus: Pre-Order (${state.nextOpeningTimeStr})\nOrder Type: ${state.orderType.toUpperCase()}\n\nThank you! Your pre-order will be prepared freshly when we open at 5:00 PM.\nPickup / Delivery Location: 94 Duddingston Park, Edinburgh.`);

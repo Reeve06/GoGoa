@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Takeaway Menu Card | Go Goa Edinburgh</title>
   <meta name="description" content="Official takeaway written menu for Go Goa Edinburgh. Authentic Goan and Indian home style cooking freshly prepared for pickup and delivery.">
   
@@ -10,7 +10,7 @@
   <link rel="icon" type="image/jpg" href="https://gogoaedinburgh.co.uk/wp-content/uploads/2022/07/cropped-go-goa-indian-food-delivery-in-edinburgh-favicon--270x270.jpg">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=107">
+  <link rel="stylesheet" href="styles.css?v=108">
 </head>
 <body class="menu-card-body">
 
@@ -659,44 +659,46 @@
     </div>
   </main>
 
-  <!-- Cart Drawer Overlay -->
+  <!-- Slide-over Shopping Cart Drawer -->
   <div class="cart-drawer-overlay" id="cart-drawer-overlay">
     <div class="cart-drawer">
       <div class="cart-header">
-        <h3>🛒 Your Order</h3>
-        <button class="cart-close-btn" id="close-cart-btn">&times;</button>
+        <h3>Your Order</h3>
+        <button class="close-cart-btn" id="close-cart-btn">&times;</button>
       </div>
 
-      <div class="order-type-toggle">
+      <div class="cart-type-toggle">
         <button class="type-btn active" id="type-pickup">
-          <span>🛍️ Collection (Pickup)</span>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Pick Up
         </button>
         <button class="type-btn" id="type-delivery">
-          <span>🛵 Delivery (£2.50)</span>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8zM5.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm13 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+          Delivery (£2.50)
         </button>
       </div>
 
-      <div id="discount-notice" class="discount-notice" style="display: none;"></div>
-
-      <div class="cart-body" id="cart-items-container">
+      <div class="cart-items-body" id="cart-items-container">
         <!-- Rendered dynamically -->
       </div>
 
       <div class="cart-footer">
+        <div id="discount-notice" class="discount-notice" style="display:none;"></div>
+
         <div class="cart-summary-line">
           <span>Subtotal</span>
           <span id="cart-subtotal">£0.00</span>
         </div>
-        <div class="cart-summary-line discount-line" id="discount-line" style="display:none; color: var(--accent-saffron);">
-          <span>10% Wed/Thu Discount</span>
-          <span id="cart-discount">-£0.00</span>
+        <div class="cart-summary-line" id="discount-line" style="display:none;">
+          <span id="discount-label">Wed/Thu Discount (10%)</span>
+          <span id="cart-discount" style="color: #2ECC71;">-£0.00</span>
         </div>
         <div class="cart-summary-line">
-          <span>Delivery Charge</span>
-          <span id="cart-delivery">FREE (Pickup)</span>
+          <span>Delivery Fee</span>
+          <span id="cart-delivery">FREE</span>
         </div>
-        <div class="cart-summary-line grand-total">
-          <span>Total Amount</span>
+        <div class="cart-summary-line total">
+          <span>Total Payable</span>
           <span id="cart-grand-total">£0.00</span>
         </div>
 
@@ -704,6 +706,22 @@
           <span>Proceed to Checkout →</span>
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- Restaurant Closed Pre-Order Notification Modal -->
+  <div class="modal-overlay" id="closed-modal">
+    <div class="modal-card closed-modal-card">
+      <button class="modal-close-btn" id="close-closed-modal">&times;</button>
+      <div style="font-size: 3rem; margin-bottom: 12px;">🕒</div>
+      <h3 style="color: var(--primary-navy); font-size: clamp(1.4rem, 3.5vw, 1.8rem); margin-bottom: 8px;">We Are Currently Closed</h3>
+      <p style="color: var(--accent-saffron); font-weight: 700; font-size: 1.05rem; margin-bottom: 14px;" id="closed-modal-opening-text">Opening Today at 5:00 PM (17:00)</p>
+      <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; margin-bottom: 22px;">
+        Our kitchen opens Wednesday to Sunday, 5:00 PM to 10:00 PM. You can pre-select your items now, and your order will be scheduled for fulfillment when we open at 5:00 PM!
+      </p>
+      <button class="btn-primary" id="understand-preorder-btn" style="width: 100%; justify-content: center;">
+        <span>Got It • Continue Pre-Ordering</span>
+      </button>
     </div>
   </div>
 
@@ -777,7 +795,7 @@
   </nav>
 
   <!-- JavaScript Files -->
-  <script src="data.js?v=107"></script>
-  <script src="app.js?v=107"></script>
+  <script src="data.js?v=108"></script>
+  <script src="app.js?v=108"></script>
 </body>
 </html>
