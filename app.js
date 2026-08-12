@@ -261,7 +261,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!modalOverlay || !modalContainer) return;
 
     modalContainer.innerHTML = `
-      <button class="modal-close-btn" id="close-recipe-modal">&times;</button>
+      <button class="modal-close-btn" id="close-recipe-modal" aria-label="Close recipe modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
       <img src="${recipe.image}" alt="${recipe.title}" class="modal-hero-img" />
       <div class="modal-body">
         <h3>${recipe.title}</h3>
@@ -324,6 +329,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     saveCart();
     updateCartUI();
+
+    // Trigger bump animation on navbar cart button for tactile feedback
+    const bumpTargets = document.querySelectorAll('.cart-btn');
+    bumpTargets.forEach(el => {
+      el.classList.remove('cart-bump');
+      void el.offsetWidth; // Reflow to restart animation
+      el.classList.add('cart-bump');
+    });
 
     if (!state.isOpen) {
       showToast(`Added to Pre-Order! Note: We open at 5:00 PM.`);
@@ -581,12 +594,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Cart Drawer Toggle
-    const cartBtn = document.getElementById('open-cart-btn');
-    const closeCartBtn = document.getElementById('close-cart-btn');
-    const cartOverlay = document.getElementById('cart-drawer-overlay');
+    document.addEventListener('click', (e) => {
+      const openTrigger = e.target.closest('#open-cart-btn, .btn-open-cart');
+      if (openTrigger) {
+        e.preventDefault();
+        const cartOverlay = document.getElementById('cart-drawer-overlay');
+        cartOverlay?.classList.add('active');
+        return;
+      }
 
-    if (cartBtn) cartBtn.addEventListener('click', () => cartOverlay?.classList.add('active'));
-    if (closeCartBtn) closeCartBtn.addEventListener('click', () => cartOverlay?.classList.remove('active'));
+      const closeTrigger = e.target.closest('#close-cart-btn');
+      if (closeTrigger) {
+        e.preventDefault();
+        const cartOverlay = document.getElementById('cart-drawer-overlay');
+        cartOverlay?.classList.remove('active');
+        return;
+      }
+
+      // Close cart drawer when clicking outside the drawer card
+      const cartOverlay = document.getElementById('cart-drawer-overlay');
+      if (cartOverlay && e.target === cartOverlay) {
+        cartOverlay.classList.remove('active');
+      }
+    });
 
     // Cart Order Type Switcher
     document.getElementById('type-pickup')?.addEventListener('click', () => {

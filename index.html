@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en-GB">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Go Goa Takeaway | Edinburgh's Best Authentic Goan & Indian Food</title>
-  <meta name="description" content="Order authentic Goan and Indian home style cooking freshly prepared for pickup and delivery in Edinburgh. Enjoy 10% OFF online orders with code DISCOUNT.">
-  
+  <meta name="description"
+    content="Order authentic Goan and Indian home style cooking freshly prepared for pickup and delivery in Edinburgh. Enjoy 10% OFF online orders with code DISCOUNT.">
+
   <!-- Favicon -->
-  <link rel="icon" type="image/jpg" href="https://gogoaedinburgh.co.uk/wp-content/uploads/2022/07/cropped-go-goa-indian-food-delivery-in-edinburgh-favicon--270x270.jpg">
+  <link rel="icon" type="image/jpg"
+    href="https://gogoaedinburgh.co.uk/wp-content/uploads/2022/07/cropped-go-goa-indian-food-delivery-in-edinburgh-favicon--270x270.jpg">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=108">
+  <link rel="stylesheet" href="styles.css?v=110">
 </head>
+
 <body>
 
   <!-- Closed Restaurant Top Warning Banner (Dynamically Shown when Closed) -->
@@ -39,8 +43,13 @@
         <div id="store-status-badge" class="status-badge open">
           <span class="status-dot"></span> <span class="status-text">OPEN NOW</span>
         </div>
-        <button class="cart-btn" id="open-cart-btn">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <button class="cart-btn" id="open-cart-btn" aria-label="View shopping cart">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" viewBox="0 0 24 24">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
           <span class="cart-btn-label">Cart</span>
           <span class="cart-count cart-count-val">0</span>
         </button>
@@ -60,7 +69,13 @@
       <a href="#home" class="brand-logo drawer-logo">
         <img src="images/logo-top.png" alt="Go Goa Takeaway Edinburgh" class="header-logo-img" />
       </a>
-      <button class="drawer-close-btn" id="close-mobile-nav" aria-label="Close menu">&times;</button>
+      <button class="drawer-close-btn" id="close-mobile-nav" aria-label="Close menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
     </div>
     <div class="mobile-drawer-body">
       <ul class="mobile-drawer-links">
@@ -130,7 +145,8 @@
           Authentic Goan & Indian <span>Home Style Cooking</span>
         </h1>
         <p class="hero-subtitle">
-          Experience 450 years of Portuguese-influenced Goan culinary heritage. Crafted with fresh coastal spices, coconut, and love by Chef Roy & Valentina.
+          Experience 450 years of Portuguese-influenced Goan culinary heritage. Crafted with fresh coastal spices,
+          coconut, and love by Chef Roy & Valentina.
         </p>
         <div class="hero-ctas">
           <a href="#menu" class="btn-primary" data-tab="menu">
@@ -162,13 +178,15 @@
       <div class="section-header">
         <span class="section-subtitle">Freshly Prepared Takeaway</span>
         <h2 class="section-title">Explore Our Full Menu</h2>
-        <p class="section-desc">Select from 16 categories of authentic Goan seafood, fiery vindaloos, biryanis, and street eats.</p>
+        <p class="section-desc">Select from 16 categories of authentic Goan seafood, fiery vindaloos, biryanis, and
+          street eats.</p>
       </div>
 
       <div class="menu-controls">
         <div class="menu-search-wrapper">
           <span class="search-icon">🔍</span>
-          <input type="text" id="menu-search" class="menu-search-input" placeholder="Search dishes (e.g., Xacuti, Manchurian, Biryani, Naan)..." />
+          <input type="text" id="menu-search" class="menu-search-input"
+            placeholder="Search dishes (e.g., Xacuti, Manchurian, Biryani, Naan)..." />
         </div>
 
         <div class="filter-chips" id="dietary-chips">
@@ -198,7 +216,8 @@
       <div class="section-header">
         <span class="section-subtitle" style="color: var(--accent-gold);">Secrets of Goan Home Cooking</span>
         <h2 class="section-title">Chef Roy's Authentic Recipes</h2>
-        <p class="section-desc" style="color: #B2C4CE;">"Real cooking is more about following your heart than following recipes." — Chef Roy</p>
+        <p class="section-desc" style="color: #B2C4CE;">"Real cooking is more about following your heart than following
+          recipes." — Chef Roy</p>
       </div>
 
       <div class="recipes-grid" id="recipes-grid">
@@ -214,15 +233,20 @@
         <span class="section-subtitle">Our Heritage & Passion</span>
         <h2>Meet Head Chef Roy & Valentina</h2>
         <p>
-          Founded by Head Chef Roy and Valentina, <strong>Go Goa Takeaway</strong> brings the vibrant coastal flavors of India's sunshine state directly to Scotland. Both raised in Vasco Da Gama, Goa, Roy spent over 20 years perfecting his craft across top establishments in Dubai, international cruise liners, the USA, and Scotland.
+          Founded by Head Chef Roy and Valentina, <strong>Go Goa Takeaway</strong> brings the vibrant coastal flavors of
+          India's sunshine state directly to Scotland. Both raised in Vasco Da Gama, Goa, Roy spent over 20 years
+          perfecting his craft across top establishments in Dubai, international cruise liners, the USA, and Scotland.
         </p>
         <p>
-          Goan cuisine is world-renowned for its 450-year Portuguese influence, creating a unique harmony between Catholic and Hindu cooking styles. Signature dishes rely on fresh coconut, toddy vinegar, dried Kokum fruit, and fragrant roasted spices.
+          Goan cuisine is world-renowned for its 450-year Portuguese influence, creating a unique harmony between
+          Catholic and Hindu cooking styles. Signature dishes rely on fresh coconut, toddy vinegar, dried Kokum fruit,
+          and fragrant roasted spices.
         </p>
         <div class="story-founders-box">
           <h4>Inspired by Mom's Kitchen</h4>
           <p style="font-size: 0.95rem; color: var(--text-muted); font-style: italic;">
-            "Every curry we serve in Duddingston is cooked using the exact spice blends taught to me by my mother in Goa." — Chef Roy
+            "Every curry we serve in Duddingston is cooked using the exact spice blends taught to me by my mother in
+            Goa." — Chef Roy
           </p>
         </div>
       </div>
@@ -248,7 +272,8 @@
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="stars-rating">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-quote">"Mom's Goan Fish Curry transported me straight back to Palolem beach. Fresh ingredients, balanced spices, and top-tier service!"</p>
+          <p class="testimonial-quote">"Mom's Goan Fish Curry transported me straight back to Palolem beach. Fresh
+            ingredients, balanced spices, and top-tier service!"</p>
           <div class="testimonial-author">
             <h5>David M.</h5>
             <p>Portobello, Edinburgh</p>
@@ -257,7 +282,8 @@
 
         <div class="testimonial-card">
           <div class="stars-rating">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-quote">"Hands down the best Goan food in Scotland! The Pork Vindaloo had authentic toddy vinegar tang and the Sev Papdi Chaat was addictively fresh."</p>
+          <p class="testimonial-quote">"Hands down the best Goan food in Scotland! The Pork Vindaloo had authentic toddy
+            vinegar tang and the Sev Papdi Chaat was addictively fresh."</p>
           <div class="testimonial-author">
             <h5>Sarah L.</h5>
             <p>Leith, Edinburgh</p>
@@ -266,7 +292,8 @@
 
         <div class="testimonial-card">
           <div class="stars-rating">⭐⭐⭐⭐⭐</div>
-          <p class="testimonial-quote">"Order arrived hot and fresh in under 35 mins. The 10% online discount code DISCOUNT worked instantly. Chicken Xacuti was phenomenal!"</p>
+          <p class="testimonial-quote">"Order arrived hot and fresh in under 35 mins. The 10% online discount code
+            DISCOUNT worked instantly. Chicken Xacuti was phenomenal!"</p>
           <div class="testimonial-author">
             <h5>James K.</h5>
             <p>Duddingston, Edinburgh</p>
@@ -286,7 +313,11 @@
         <div class="contact-info-list">
           <div class="contact-info-item">
             <div class="contact-icon">
-              <svg width="20" height="20" fill="none" stroke="#032E3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <svg width="20" height="20" fill="none" stroke="#032E3F" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
             </div>
             <div class="contact-details">
               <h5>Address</h5>
@@ -296,7 +327,11 @@
 
           <div class="contact-info-item">
             <div class="contact-icon">
-              <svg width="20" height="20" fill="none" stroke="#032E3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <svg width="20" height="20" fill="none" stroke="#032E3F" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
             </div>
             <div class="contact-details">
               <h5>Email Us</h5>
@@ -306,7 +341,11 @@
 
           <div class="contact-info-item">
             <div class="contact-icon">
-              <svg width="20" height="20" fill="none" stroke="#032E3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.79a16 16 0 0 0 6.29 6.29l1.68-1.68a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <svg width="20" height="20" fill="none" stroke="#032E3F" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.79a16 16 0 0 0 6.29 6.29l1.68-1.68a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
             </div>
             <div class="contact-details">
               <h5>Phone Numbers</h5>
@@ -319,27 +358,45 @@
 
           <div class="contact-info-item">
             <div class="contact-icon">
-              <svg width="20" height="20" fill="none" stroke="#032E3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="20" height="20" fill="none" stroke="#032E3F" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
             </div>
             <div class="contact-details">
               <h5>Opening Hours</h5>
-              <p><strong>Wednesday - Sunday:</strong> 5:00 PM – 10:00 PM<br><span style="color: var(--accent-saffron);">Closed Monday & Tuesday</span></p>
+              <p><strong>Wednesday - Sunday:</strong> 5:00 PM – 10:00 PM<br><span
+                  style="color: var(--accent-saffron);">Closed Monday & Tuesday</span></p>
             </div>
           </div>
 
           <div class="contact-info-item">
             <div class="contact-icon" style="background:#E8F5FA; border-color:rgba(3,46,63,0.10);">
-              <svg width="20" height="20" fill="none" stroke="#032E3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <svg width="20" height="20" fill="none" stroke="#032E3F" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path
+                  d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
             </div>
             <div class="contact-details">
               <h5>Follow Us</h5>
               <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap;">
-                <a href="https://www.facebook.com/Go-Goa-Edinburgh-103436119164062" target="_blank" rel="noopener" class="btn-social-chip facebook">
-                  <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <a href="https://www.facebook.com/Go-Goa-Edinburgh-103436119164062" target="_blank" rel="noopener"
+                  class="btn-social-chip facebook">
+                  <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
                   <span>Facebook</span>
                 </a>
-                <a href="https://www.instagram.com/gogoaedinburgh/" target="_blank" rel="noopener" class="btn-social-chip instagram">
-                  <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <a href="https://www.instagram.com/gogoaedinburgh/" target="_blank" rel="noopener"
+                  class="btn-social-chip instagram">
+                  <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
                   <span>Instagram</span>
                 </a>
               </div>
@@ -354,12 +411,9 @@
           <h4>📍 Find Us in Duddingston, Edinburgh</h4>
           <p>94 Duddingston Park, Edinburgh, EH15 1JZ</p>
         </div>
-        <iframe 
-          src="https://maps.google.com/maps?q=94%20Duddingston%20Park,%20Edinburgh,%20EH15%201JZ&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-          class="map-iframe" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
+        <iframe
+          src="https://maps.google.com/maps?q=94%20Duddingston%20Park,%20Edinburgh,%20EH15%201JZ&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
     </div>
@@ -370,16 +424,32 @@
     <div class="cart-drawer">
       <div class="cart-header">
         <h3>Your Order</h3>
-        <button class="close-cart-btn" id="close-cart-btn">&times;</button>
+        <button class="close-cart-btn" id="close-cart-btn" aria-label="Close cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
 
       <div class="cart-type-toggle">
         <button class="type-btn active" id="type-pickup">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
           Pick Up
         </button>
         <button class="type-btn" id="type-delivery">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8zM5.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm13 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" viewBox="0 0 24 24">
+            <rect x="1" y="3" width="15" height="13" rx="2" />
+            <path
+              d="M16 8h4l3 3v5h-7V8zM5.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm13 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+          </svg>
           Delivery (£2.50)
         </button>
       </div>
@@ -425,12 +495,21 @@
   <!-- Restaurant Closed Pre-Order Notification Modal -->
   <div class="modal-overlay" id="closed-modal">
     <div class="modal-card closed-modal-card">
-      <button class="modal-close-btn" id="close-closed-modal">&times;</button>
+      <button class="modal-close-btn" id="close-closed-modal" aria-label="Close dialog">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
       <div style="font-size: 3rem; margin-bottom: 12px;">🕒</div>
-      <h3 style="color: var(--primary-navy); font-size: clamp(1.4rem, 3.5vw, 1.8rem); margin-bottom: 8px;">We Are Currently Closed</h3>
-      <p style="color: var(--accent-saffron); font-weight: 700; font-size: 1.05rem; margin-bottom: 14px;" id="closed-modal-opening-text">Opening Today at 5:00 PM (17:00)</p>
+      <h3 style="color: var(--primary-navy); font-size: clamp(1.4rem, 3.5vw, 1.8rem); margin-bottom: 8px;">We Are
+        Currently Closed</h3>
+      <p style="color: var(--accent-saffron); font-weight: 700; font-size: 1.05rem; margin-bottom: 14px;"
+        id="closed-modal-opening-text">Opening Today at 5:00 PM (17:00)</p>
       <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.55; margin-bottom: 22px;">
-        Our kitchen opens Wednesday to Sunday, 5:00 PM to 10:00 PM. You can pre-select your items now, and your order will be scheduled for fulfillment when we open at 5:00 PM!
+        Our kitchen opens Wednesday to Sunday, 5:00 PM to 10:00 PM. You can pre-select your items now, and your order
+        will be scheduled for fulfillment when we open at 5:00 PM!
       </p>
       <button class="btn-primary" id="understand-preorder-btn" style="width: 100%; justify-content: center;">
         <span>Got It • Continue Pre-Ordering</span>
@@ -443,13 +522,22 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="images/logo-bottom.png" alt="Go Goa" style="height: 48px;" />
-        <p>Bringing authentic coastal Goan and regional Indian home style cooking to Edinburgh with passion and fresh ingredients.</p>
+        <p>Bringing authentic coastal Goan and regional Indian home style cooking to Edinburgh with passion and fresh
+          ingredients.</p>
         <div style="display: flex; gap: 12px; margin-top: 16px;">
-          <a href="https://www.facebook.com/Go-Goa-Edinburgh-103436119164062" target="_blank" rel="noopener" class="social-icon-btn facebook">
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <a href="https://www.facebook.com/Go-Goa-Edinburgh-103436119164062" target="_blank" rel="noopener"
+            class="social-icon-btn facebook">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
           </a>
-          <a href="https://www.instagram.com/gogoaedinburgh/" target="_blank" rel="noopener" class="social-icon-btn instagram">
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <a href="https://www.instagram.com/gogoaedinburgh/" target="_blank" rel="noopener"
+            class="social-icon-btn instagram">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
           </a>
         </div>
       </div>
@@ -458,7 +546,7 @@
         <h4>Quick Links</h4>
         <ul class="footer-links">
           <li><a href="#home">Home</a></li>
-          <li><a href="#menu">Online Menu</a></li>
+          <li><a href="menu.html">Full Menu</a></li>
           <li><a href="#recipes">Chef Recipes</a></li>
           <li><a href="#story">Our Story</a></li>
           <li><a href="#contact">Contact & Map</a></li>
@@ -480,7 +568,10 @@
         <h4>Connect & Location</h4>
         <p style="color: #B2C4CE; font-size: 0.95rem; margin-bottom: 12px;">94 Duddingston Park, Edinburgh, EH15 1JZ</p>
         <p style="color: var(--accent-gold); font-weight: 700; margin-bottom: 12px;">📞 0131 669 4048</p>
-        <a href="https://maps.google.com/maps?q=94%20Duddingston%20Park,%20Edinburgh,%20EH15%201JZ" target="_blank" rel="noopener" style="color: var(--accent-gold); text-decoration: underline; font-weight: 600; font-size: 0.9rem;">📍 Open in Google Maps →</a>
+        <a href="https://maps.google.com/maps?q=94%20Duddingston%20Park,%20Edinburgh,%20EH15%201JZ" target="_blank"
+          rel="noopener"
+          style="color: var(--accent-gold); text-decoration: underline; font-weight: 600; font-size: 0.9rem;">📍 Open in
+          Google Maps →</a>
       </div>
     </div>
 
@@ -512,7 +603,8 @@
   </nav>
 
   <!-- JavaScript Files -->
-  <script src="data.js?v=108"></script>
-  <script src="app.js?v=108"></script>
+  <script src="data.js?v=111"></script>
+  <script src="app.js?v=111"></script>
 </body>
+
 </html>
